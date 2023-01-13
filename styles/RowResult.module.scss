@@ -1,0 +1,8 @@
+.rowResult {
+  &.deleted {
+    display: none;
+  }
+  td {
+    border: 1px solid gray;
+  }
+}

@@ -1,0 +1,141 @@
+.marksheet {
+  width: 100%;
+  height: fit-content;
+  overflow: scroll;
+
+  display: flex;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  background-color: #f2f3f4;
+
+  align-items: center;
+  // background: linear-gradient(90deg,rgba(233,76,161,1) 0%,rgba(199,74,233,1) 100%);
+  button {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    width: fit-content;
+    padding: 0.5rem 0.8rem;
+    border: var(--border);
+    color: white;
+    border-radius: 0.5rem;
+    background: rgb(241, 82, 38);
+  }
+}
+
+.container {
+  width: 595px;
+  height: 841.5px;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  align-items: center;
+  box-shadow: 0 0 5px rgb(218, 214, 214);
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+
+    background-repeat: no-repeat;
+    background-position: 120% 50%;
+    background-size: 150px;
+    .schoolName {
+      font-size: 2.3rem;
+      font-weight: 700;
+
+      color: var(--black);
+    }
+    .examName {
+      font-size: 1.7rem;
+      color: var(--black);
+      margin-top: 0.4rem;
+    }
+  }
+  .middle {
+    width: 100%;
+    display: grid;
+    padding-left: 12rem;
+    margin-top: 1rem;
+
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+
+    & > * {
+      margin-bottom: 0.5rem;
+
+      .head {
+        font-size: 1.6rem;
+        color: var(--black);
+        font-weight: 600;
+      }
+      .value {
+        font-size: 1.5rem;
+        padding-bottom: 0;
+        margin-left: 0.4rem;
+        color: var(--black);
+        border-bottom: 1.5px dotted var(--black);
+      }
+    }
+  }
+
+  @media screen and (max-width: 520px) {
+    .middle {
+      padding-left: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    }
+  }
+  .bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .heading {
+      font-size: 1.9rem;
+      color: var(--black);
+      font-weight: 600;
+      margin: 0.5rem 0;
+      text-decoration: underline;
+    }
+    table {
+      thead {
+        tr {
+          background: #ba68ca;
+          color: white;
+          padding: 0.5rem;
+
+          font-weight: 550;
+
+          th {
+            padding: 0.4rem;
+            font-size: 1.6rem;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          &:nth-child(even) {
+            background: #e6e6fa;
+          }
+          td {
+            color: var(--black);
+            font-size: 1.6rem;
+            font-weight: 500;
+            padding: 0.4rem;
+
+            l &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(4) {
+              padding-left: 0.4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

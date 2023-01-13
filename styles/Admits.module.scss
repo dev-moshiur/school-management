@@ -1,0 +1,11 @@
+.admits {
+  display: flex;
+
+  flex-direction: column;
+  border: 1px solid var(--black);
+  width: 595px;
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  }
+}

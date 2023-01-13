@@ -1,0 +1,90 @@
+.rowResultContainer {
+  width: 1191px;
+  // height: 1648px;
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: hidden;
+  .header {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .schoolName {
+      color: var(--black);
+      font-size: 2.3rem;
+      font-weight: 500;
+    }
+    .examType {
+      color: var(--black);
+      font-size: 1.7rem;
+      margin-top: 0.5rem;
+    }
+    .other {
+      margin-top: 0.5rem;
+      display: flex;
+      column-gap: 1rem;
+      justify-content: space-between;
+      span {
+        &:first-child {
+          font-size: 1.5rem;
+          font-weight: 500;
+          margin-right: 0.4rem;
+          color: var(--black);
+        }
+        &:last-child {
+          font-size: 1.4rem;
+          font-weight: 500;
+          color: var(--black);
+        }
+      }
+    }
+  }
+  .table {
+    width: 96%;
+    margin: 0 auto;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: var(--black);
+      overflow: scroll;
+      thead {
+        tr {
+          th {
+            border: 1px solid var(--black);
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            border: 1px solid var(--black);
+            padding: 0.1rem;
+          }
+        }
+      }
+      table {
+        th {
+          border: 1px solid gray;
+
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+.button {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+  width: fit-content;
+  padding: 0.5rem 0.8rem;
+  border: var(--border);
+  color: white;
+  border-radius: 0.5rem;
+  background: rgb(241, 82, 38);
+}

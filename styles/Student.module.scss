@@ -1,0 +1,138 @@
+.students {
+  width: 100%;
+  padding: 3%;
+  display: flex;
+
+  flex-direction: column;
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    .add {
+      button {
+        background: var(--mainColor3);
+        color: var(--white);
+        font-size: 1.4rem;
+        padding: 0.5rem 1rem;
+        font-weight: 600;
+        outline: none;
+        border-radius: 0.4rem;
+        transition: 0.4s;
+        border: none;
+        cursor: pointer;
+        &:hover {
+          background: var(--mainColor2);
+        }
+      }
+    }
+    .heading {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      span {
+        &:first-child {
+          font-size: 1.5rem;
+          font-weight: 600;
+          width: fit-content;
+          &::after {
+            content: "";
+            width: 100%;
+            height: 0.4rem;
+            background: var(--mainColor4);
+            display: block;
+          }
+        }
+        &:last-child {
+          transform: scale(1.2);
+        }
+      }
+    }
+    .studentContainer {
+      margin-top: 1rem;
+      overflow: hidden;
+
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+      column-gap: 1.2rem;
+      row-gap: 1.2rem;
+      .menu {
+        position: absolute;
+        top: -21rem;
+        right: 0;
+
+        width: 20rem;
+
+        background: var(--lightWhite);
+        display: flex;
+        overflow: hidden;
+        z-index: 3;
+        height: fit-content;
+        justify-content: center;
+        flex-direction: column;
+        padding: 1rem 2rem;
+        transition: 0.5s;
+        & > * {
+          color: var(--black);
+          font-size: 1.3rem;
+          font-weight: 500;
+          cursor: pointer;
+          margin: 0.4rem 0rem;
+          opacity: 0;
+          &:last-child {
+            position: absolute;
+            top: 0.3rem;
+            right: 0.5rem;
+            transform: scale(1.2);
+            color: var(--mainColor2);
+          }
+        }
+        &.active {
+          top: 0;
+          & > * {
+            opacity: 1;
+          }
+        }
+      }
+      .sheet {
+        position: absolute;
+        top: -100%;
+        right: 0;
+        left: 0;
+        height: fit-content;
+        z-index: 3;
+        transition: 0.6s;
+        background: var(--lightWhite);
+        opacity: 0;
+        &.active {
+          top: 0;
+          opacity: 1;
+        }
+      }
+    }
+    .displayNone {
+      display: none;
+
+      .pdf {
+        width: 595px;
+      }
+      .examSheet {
+        width: 1191px;
+        table {
+          width: 96%;
+          margin: 0 auto;
+          border-collapse: collapse;
+          tr {
+            td,
+            th {
+              border: 1px solid var(--black);
+              max-width: 70px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

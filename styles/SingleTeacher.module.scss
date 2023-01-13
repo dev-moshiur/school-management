@@ -1,0 +1,109 @@
+.teacher {
+  display: flex;
+  // border: 1px solid rgb(230, 223, 223);
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.1);
+  &.deleted {
+    display: none;
+  }
+  .left {
+    width: 100%;
+    padding: 0px 2%;
+    .imgContainer {
+      width: 94%;
+      margin: 0 auto;
+      height: fit-content;
+    }
+    & > * {
+      &:last-child {
+        margin-top: 1rem;
+        margin-bottom: 0.9rem;
+        background: var(--mainColor3);
+        width: fit-content;
+        font-size: 1.3rem;
+        font-weight: 500;
+        cursor: pointer;
+        color: var(--white);
+        padding: 0.3rem 0.7rem;
+        border-radius: 0.3rem;
+        outline: none;
+        border: none;
+        transition: 0.4s;
+
+        &:hover {
+          background: var(--mainColor2);
+        }
+      }
+    }
+
+    .name {
+      margin-top: 0.6rem;
+      span {
+        font-size: 1.5rem;
+        color: var(--black);
+        font-weight: 600;
+      }
+    }
+    .qualification {
+      font-weight: 500;
+      margin: 0.5rem 0rem;
+      font-size: 1.3rem;
+      color: var(--black);
+    }
+  }
+
+  .addmin {
+    position: absolute;
+    top: 2rem;
+    right: -6rem;
+    width: 6rem;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f3f4;
+    z-index: 2;
+    transition: 0.4s;
+    &.active {
+      right: 0;
+    }
+    & > * {
+      color: var(--black);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0.5rem 0rem;
+      cursor: pointer;
+    }
+  }
+  .adminMenu {
+    position: absolute;
+    top: 0;
+    right: 0.4rem;
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+    align-items: center;
+    z-index: 3;
+    height: 2rem;
+    width: 2.3rem;
+
+    span {
+      color: var(--black);
+      height: 0.5rem;
+      width: 0.5rem;
+      border-radius: 50%;
+      background: var(--black);
+      transition: 0.2s;
+    }
+    &:hover {
+      span {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

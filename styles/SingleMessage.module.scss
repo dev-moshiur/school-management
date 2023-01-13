@@ -1,0 +1,48 @@
+.message {
+  display: flex;
+  flex-direction: column;
+  padding: 0.6rem;
+  color: var(--black);
+  border: 1px solid var(--black);
+  border-radius: 0.3rem;
+  &.deleted {
+    display: none;
+  }
+  .date {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 0.9rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.6rem;
+  }
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.9rem;
+    align-items: center;
+
+    .name {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+    .email {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+  }
+  .bottom {
+    margin-top: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+  .option {
+    width: fit-content;
+    font-size: 1.1rem;
+    padding: 0.1rem 0.6rem;
+    background: var(--mainColor3);
+    color: var(--white);
+    cursor: pointer;
+    border-radius: 0.2rem;
+    margin-top: 0.4rem;
+  }
+}

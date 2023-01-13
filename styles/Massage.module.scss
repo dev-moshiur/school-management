@@ -1,0 +1,13 @@
+.massages {
+  width: 94%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    column-gap: 1rem;
+    row-gap: 1rem;
+  }
+}

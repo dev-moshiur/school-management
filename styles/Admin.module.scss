@@ -1,0 +1,51 @@
+.admin {
+  display: flex;
+  width: 100%;
+  padding: 2%;
+
+  flex-direction: column;
+  .container {
+    display: flex;
+    width: 94%;
+    .sidebar {
+      width: fit-content;
+      display: flex;
+      flex-direction: column;
+      padding: 0.7rem 1.2rem;
+      color: var(--white);
+      background: var(--mainColor3);
+      font-size: 1.3rem;
+      font-weight: 500;
+
+      .active {
+        background: var(--mainColor4);
+      }
+      & > * {
+        cursor: pointer;
+        margin: 0.5rem 0rem;
+        width: fit-content;
+        padding: 0.1rem 0.6rem;
+        border-radius: 0.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .mainContainer {
+      flex: 1;
+      & > * {
+        &:first-child {
+          display: flex;
+          flex-direction: column;
+          margin-left: 4rem;
+          & > * {
+            font-size: 1.2rem;
+            font-weight: 500;
+            cursor: pointer;
+            margin: 0.4rem 0rem;
+          }
+        }
+      }
+    }
+  }
+}

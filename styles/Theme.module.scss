@@ -1,0 +1,75 @@
+.theme {
+  width: 100%;
+  background: #f2f3f4;
+  .mySwiper {
+    width: 100%;
+    height: fit-content;
+
+    .sliderItem {
+      width: 100%;
+      position: relative;
+
+      .img {
+        width: 100%;
+        position: relative;
+      }
+      .textContent {
+        text-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.1);
+        h3 {
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+        p {
+          font-size: 1.3rem;
+          font-weight: 500;
+        }
+        button {
+          position: absolute;
+          bottom: 20%;
+          left: 6.1%;
+          border: none;
+          background: var(--mainColor3);
+          padding: 0.3rem 0.8rem;
+          font-size: 1.4rem;
+          font-weight: 500;
+          color: var(--white);
+          border-radius: 0.3rem;
+        }
+      }
+      .delete {
+        position: absolute;
+        top: 0.2rem;
+        right: 0.2rem;
+        height: 2rem;
+        width: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: var(--white);
+        & > * {
+          color: var(--black);
+          &:first-child {
+            cursor: pointer;
+          }
+        }
+        span {
+          display: none;
+          position: absolute;
+          top: 0.1rem;
+          right: 2.5rem;
+          color: var(--black);
+          font-size: 1rem;
+          font-weight: 500;
+          padding: 0.1rem 0.7rem;
+          background: var(--white);
+        }
+        &:hover {
+          span {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

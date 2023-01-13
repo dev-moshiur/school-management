@@ -1,0 +1,38 @@
+.teachers {
+  width: 100%;
+  padding: 3%;
+  display: flex;
+
+  flex-direction: column;
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    .add {
+      button {
+        background: var(--mainColor3);
+        color: var(--white);
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+        font-weight: 600;
+        outline: none;
+        border-radius: 0.4rem;
+        transition: 0.4s;
+        border: none;
+        cursor: pointer;
+        &:hover {
+          background: var(--mainColor2);
+        }
+      }
+    }
+    .teacherContainer {
+      margin-top: 1rem;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+      column-gap: 1.2rem;
+      row-gap: 1.2rem;
+    }
+  }
+}
