@@ -24,7 +24,11 @@ export default function Result() {
       .then((data) => {
         setresult(data);
         setloading(false);
-      });
+        console.log(data);
+      })
+      .catch(err=>console.log(err))
+        
+      
   };
   return (
     <div className={Styles.result}>
@@ -35,7 +39,7 @@ export default function Result() {
         </div> */}
         <form onSubmit={submitHandle}>
           <label htmlFor="class">Class</label>
-          <input type="number" id="class" name="class" />
+          <input type='number' id="class" name="class" />
           <label htmlFor="croup">Group</label>
           <input type="text" id="group" name="group" />
           <label htmlFor="roll">Roll</label>

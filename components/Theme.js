@@ -11,6 +11,8 @@ import { useEffect, useState } from "react";
 import { useData } from "../contexts/dataContext";
 import { Delete } from "@material-ui/icons";
 export default function Theme({banners}) {
+
+  const {data} = useData();
   
   const deliting = (id) => {
     fetch(`${data.url}/banner/${id}`, {
