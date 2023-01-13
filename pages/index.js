@@ -11,12 +11,12 @@ import Gellary from "../components/Gellary";
 import Theme from "../components/Theme";
 import Link from "next/link";
 import { Call, Phone } from "@material-ui/icons";
-export default function Home({ notice, teacher, headTeacher, news, gellary }) {
+export default function Home({ notice, teacher, headTeacher, news, gellary,banner }) {
   return (
     <div className={styles.home}>
       <div className={styles.land}>
         <div className={styles.banner}>
-          <Theme />
+          <Theme banners={banner} />
         </div>
 
         {notice && (
@@ -66,12 +66,12 @@ export default function Home({ notice, teacher, headTeacher, news, gellary }) {
       <div className={styles.headerUnderline}></div>
       <div className={styles.headTeacher}>
         <div className={styles.imgContainer}>
-          {headTeacher.img && (
+          {headTeacher[0].img && (
             <Image
               layout="responsive"
               width={"100%"}
               height="100%"
-              src={headTeacher.img}
+              src={headTeacher[0].img}
               alt="photo"
             />
           )}
@@ -79,27 +79,27 @@ export default function Home({ notice, teacher, headTeacher, news, gellary }) {
         <div className={styles.textContainer}>
           <div className={styles.text}>
             <span>Name :</span>
-            <span>{headTeacher.name}</span>
+            <span>{headTeacher[0].name}</span>
           </div>
           <div className={styles.text}>
             <span>Email :</span>
-            <span>{headTeacher.email}</span>
+            <span>{headTeacher[0].email}</span>
           </div>
           <div className={styles.text}>
             <span>Phone :</span>
-            <span>{headTeacher.phone} </span>
+            <span>{headTeacher[0].phone} </span>
           </div>
           <div className={styles.text}>
             <span>Qualification :</span>
-            <span>{headTeacher.qualification}</span>
+            <span>{headTeacher[0].qualification}</span>
           </div>
           <div className={styles.text}>
             <span>Join Date : </span>
-            <span>{headTeacher.joinDate}</span>
+            <span>{headTeacher[0].joinDate}</span>
           </div>
           <div className={styles.text}>
             <span>Address :</span>
-            <span>{headTeacher.address}</span>
+            <span>{headTeacher[0].address}</span>
           </div>
         </div>
       </div>

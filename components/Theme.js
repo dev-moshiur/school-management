@@ -10,21 +10,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useData } from "../contexts/dataContext";
 import { Delete } from "@material-ui/icons";
-export default function Theme() {
-  const [banners, setbanners] = useState([]);
-
-  const { data, showMessage } = useData();
-  useEffect(() => {
-    fetch(
-      `https://school-management-api-six.vercel.app/banner`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setbanners(data);
-        console.log(data);
-      });
-  }, []);
-
+export default function Theme({banners}) {
+  
   const deliting = (id) => {
     fetch(`${data.url}/banner/${id}`, {
       method: "delete",
