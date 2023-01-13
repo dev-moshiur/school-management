@@ -17,7 +17,7 @@ export default function DataContext({ children }) {
     formHeading: "",
     isAdmin: false,
     loading: false,
-    url: `http://localhost:8002https://school-management-api-six.vercel.app`,
+    url: `https://school-management-api-six.vercel.app`,
     submitFunction: () => {},
   };
   const [data, dispatch] = useReducer(reducer, intialState);
@@ -25,7 +25,7 @@ export default function DataContext({ children }) {
   const checkAdmin = () => {
     if (!data.adminChecked) {
       fetch(
-        `http://localhost:8002https://school-management-api-six.vercel.app/checkAdmin`,
+        `https://school-management-api-six.vercel.app/checkAdmin`,
         {
           credentials: "include",
         }

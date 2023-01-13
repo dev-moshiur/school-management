@@ -57,7 +57,7 @@ export const newss = (method, func, id, headline = "", data = "") => {
           img: img,
         };
         fetch(
-          `http://localhost:8002https://school-management-api-six.vercel.app/news/${
+          `https://school-management-api-six.vercel.app/news/${
             id ? id : ""
           }`,
           {

@@ -16,7 +16,7 @@ export default function Theme() {
   const { data, showMessage } = useData();
   useEffect(() => {
     fetch(
-      `http://localhost:8002https://school-management-api-six.vercel.app/banner`
+      `https://school-management-api-six.vercel.app/banner`
     )
       .then((res) => res.json())
       .then((data) => {

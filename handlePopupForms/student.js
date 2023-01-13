@@ -111,7 +111,7 @@ export const student = (
           img: img,
         };
         fetch(
-          `http://localhost:8002https://school-management-api-six.vercel.app/person/${
+          `https://school-management-api-six.vercel.app/person/${
             id ? id : ""
           }`,
           {

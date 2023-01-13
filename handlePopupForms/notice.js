@@ -45,7 +45,7 @@ export const notice = (method, func, id, headline = "") => {
           img: img,
         };
         fetch(
-          `http://localhost:8002https://school-management-api-six.vercel.app/notice/${
+          `https://school-management-api-six.vercel.app/notice/${
             id ? id : ""
           }`,
           {

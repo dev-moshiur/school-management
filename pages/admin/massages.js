@@ -16,7 +16,7 @@ export default function Massages({ getMassage }) {
 
 export const getServerSideProps = async (ctx) => {
   const res = await fetch(
-    "http://localhost:8002https://school-management-api-six.vercel.app/message"
+    "https://school-management-api-six.vercel.app/message"
   );
   const getMassage = await res.json();
   return {

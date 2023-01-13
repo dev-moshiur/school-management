@@ -31,7 +31,7 @@ export default function NoticeCom({ getData }) {
 }
 
 export const getServerSideProps = async (ctx) => {
-  const server = `http://localhost:8002https://school-management-api-six.vercel.app`;
+  const server = `https://school-management-api-six.vercel.app`;
   const res = await fetch(`${server}/notice`);
   const getData = await res.json();
   return {

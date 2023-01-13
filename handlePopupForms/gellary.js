@@ -45,7 +45,7 @@ export const gallery = (method, func, id, headline = "") => {
           img: img,
         };
         fetch(
-          `http://localhost:8002https://school-management-api-six.vercel.app/gellary/${
+          `https://school-management-api-six.vercel.app/gellary/${
             id ? id : ""
           }`,
           {

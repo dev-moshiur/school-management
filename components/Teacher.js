@@ -11,7 +11,7 @@ export default function Student({ teacherInfo }) {
   const [adminMenu, setadminMenu] = useState(false);
 
   const { data, dispatch, showMessage } = useData();
-  // let imgSrc=`http://localhost:8002https://school-management-api-six.vercel.app/${teacherInfo.img}`;
+  // let imgSrc=`https://school-management-api-six.vercel.app/${teacherInfo.img}`;
   const creatingFormForPut = () => {
     dispatch({
       type: "createForm",

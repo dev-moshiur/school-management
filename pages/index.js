@@ -161,7 +161,7 @@ export default function Home({ notice, teacher, headTeacher, news, gellary }) {
 }
 
 export const getServerSideProps = async (ctx) => {
-  const server = `http://localhost:8002https://school-management-api-six.vercel.app`;
+  const server = `https://school-management-api-six.vercel.app`;
 
   const res = await fetch(`${server}/homePage`);
   const getData = await res.json();

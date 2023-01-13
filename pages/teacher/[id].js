@@ -50,7 +50,7 @@ export default function TeacherSingle({ teacherInfo }) {
 
 export const getServerSideProps = async (ctx) => {
   const res = await fetch(
-    `http://localhost:8002https://school-management-api-six.vercel.app/teacher/${ctx.params.id}`
+    `https://school-management-api-six.vercel.app/teacher/${ctx.params.id}`
   );
   const teacherInfo = await res.json();
   return {

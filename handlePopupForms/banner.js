@@ -81,7 +81,7 @@ export const banner = (
           img: img,
         };
         fetch(
-          `http://localhost:8002https://school-management-api-six.vercel.app/banner/${
+          `https://school-management-api-six.vercel.app/banner/${
             id ? id : ""
           }`,
           {

@@ -109,7 +109,7 @@ export const teacher = (
           img: img,
         };
         fetch(
-          `http://localhost:8002https://school-management-api-six.vercel.app/teacher/${
+          `https://school-management-api-six.vercel.app/teacher/${
             id ? id : ""
           }`,
           {

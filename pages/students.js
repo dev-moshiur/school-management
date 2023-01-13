@@ -140,7 +140,7 @@ export default function Students({ six, seven, eight, nine, ten }) {
 }
 
 export const getServerSideProps = async (ctx) => {
-  const server = `http://localhost:8002https://school-management-api-six.vercel.app`;
+  const server = `https://school-management-api-six.vercel.app`;
 
   const resSix = await fetch(`${server}/person/?className=6`);
   const six = await resSix.json();

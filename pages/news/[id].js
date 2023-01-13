@@ -44,7 +44,7 @@ export default function SingleNews({ news }) {
 
 export const getServerSideProps = async (ctx) => {
   const res = await fetch(
-    `http://localhost:8002https://school-management-api-six.vercel.app/news/${ctx.params.id}`
+    `https://school-management-api-six.vercel.app/news/${ctx.params.id}`
   );
   const news = await res.json();
   return {
