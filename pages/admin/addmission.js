@@ -1,9 +1,18 @@
-import React from "react";
+import React,{useEffect} from "react";
 import AddmitionReq from "../../components/AddmitionReq";
 import Styles from "../../styles/AddmitionReqs.module.scss";
 import { useData } from "../../contexts/dataContext";
+import { useRouter } from 'next/router'
 export default function Addmission({ getAddmissionReq }) {
   const { data } = useData();
+  let router= useRouter()
+  useEffect(() => {
+    if (!data.isAdmin) {
+      router.push('/admin')
+    }
+    
+  }, []);
+  
 
   return (
     <div className={Styles.addmitionReqs}>

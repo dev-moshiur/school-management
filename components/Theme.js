@@ -1,7 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import Themeone from "./images.jpg";
+
 import Image from "next/image";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
@@ -49,7 +49,7 @@ export default function Theme({banners}) {
                     width={"100%"}
                     height="52rem"
                     className={Styles.image}
-                    src={elm.img || Themeone}
+                    src={elm.img}
                     alt="photo"
                   />
                 }

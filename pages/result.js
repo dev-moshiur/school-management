@@ -4,15 +4,14 @@ import Styles from "../styles/Result.module.scss";
 import Marksheet from "../components/Marksheet";
 import Loading from "../components/Loading";
 import { useData } from "../contexts/dataContext";
+import { Clear } from "@material-ui/icons";
 export default function Result() {
+  const [searchMessage, setsearchMessage] = useState(true);
+  
   const [result, setresult] = useState([]);
   const [loading, setloading] = useState(false);
   const { data } = useData();
-  useEffect(() => {
-    alert(
-      "for testing search result with class : 9 , group : science , roll : 1"
-    );
-  }, []);
+  
 
   const submitHandle = (e) => {
     e.preventDefault();
@@ -37,6 +36,18 @@ export default function Result() {
         {/* <div className={Styles.title}>
           Know your Opinion,report and so on
         </div> */}
+        {searchMessage && 
+       <div className={Styles.message}>
+        <span>
+        For testing search result with  <br/>
+        <b>class : 9 </b><br/>
+        <b>group : science </b><br/>
+        <b>roll : 1</b>
+           
+        </span>
+        <Clear onClick={()=>setsearchMessage(false)}/>
+      </div>}
+     
         <form onSubmit={submitHandle}>
           <label htmlFor="class">Class</label>
           <input type='number' id="class" name="class" />

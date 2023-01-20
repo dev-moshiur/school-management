@@ -1,14 +1,13 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect,useState } from "react";
 import { useData } from "../contexts/dataContext";
 import Loading from "./Loading";
 import Styles from "../styles/Login.module.scss";
+import { Clear } from "@material-ui/icons";
 export default function Login({ setcontent }) {
   const { showMessage, data, dispatch } = useData();
-  useEffect(() => {
-    alert(
-      "to check admin functionallity login with email : dev.moshiurr@gmail.com and password : 111"
-    );
-  }, []);
+  const [loginMessage, setLoginMessage] = useState(true);
+  
+ 
 
   let email = useRef();
   let password = useRef();
@@ -49,6 +48,16 @@ export default function Login({ setcontent }) {
     <div className={Styles.login}>
       <div className={Styles.heading}>Login</div>
       <Loading loading={data.loading} />
+      {loginMessage && 
+       <div className={Styles.message}>
+        <span>
+        To check admin functionallity login with <br/>
+        <b>email : dev.moshiurr@gmail.com </b><br/><b>
+           password : 111</b>
+        </span>
+        <Clear onClick={()=>setLoginMessage(false)}/>
+      </div>}
+     
       <form onSubmit={handleSubmit}>
         <label htmlFor={"email"}>Email</label>
 

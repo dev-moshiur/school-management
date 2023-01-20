@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
+
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper";
+import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.scss";
 import Notice from "../components/Notice";
 import Teacher from "../components/Teacher";
@@ -10,20 +10,41 @@ import News from "../components/News";
 import Gellary from "../components/Gellary";
 import Theme from "../components/Theme";
 import Link from "next/link";
-import { Call, Phone } from "@material-ui/icons";
-export default function Home({ notice, teacher, headTeacher, news, gellary,banner }) {
-  return (
-    <div className={styles.home}>
+import Loading from '../components/Loading'
+
+export default function Home() {
+  const [pageData, setpageData] = useState({});
+  const [loading, setloading] = useState(true);
+
+
+  useEffect(() => {
+    
+      setloading(true)
+      const server = `https://school-management-api-six.vercel.app`;
+
+      fetch(`${server}/homePage`)
+      .then(res => res.json())
+      .then(data => {
+        setpageData(data);
+        setloading(false)
+
+      })
+    
+  }, []);
+
+  return (<>
+    {loading && <Loading loading={loading} />}
+    {!loading && <div className={styles.home}>
       <div className={styles.land}>
         <div className={styles.banner}>
-          <Theme banners={banner} />
+          {pageData.banner && <Theme banners={pageData.banner} />}
         </div>
 
-        {notice && (
+        {pageData.notice && (
           <div className={styles.notice}>
             <div className={styles.heading}>Notice Board</div>
             <div className={styles.container}>
-              {notice.map((item) => (
+              {pageData.notice.map((item) => (
                 <Notice key={item._id} noticeInfo={item} />
               ))}
             </div>
@@ -66,12 +87,12 @@ export default function Home({ notice, teacher, headTeacher, news, gellary,banne
       <div className={styles.headerUnderline}></div>
       <div className={styles.headTeacher}>
         <div className={styles.imgContainer}>
-          {headTeacher[0].img && (
+          {pageData.headTeacher[0].img && (
             <Image
               layout="responsive"
               width={"100%"}
               height="100%"
-              src={headTeacher[0].img}
+              src={pageData.headTeacher[0].img}
               alt="photo"
             />
           )}
@@ -79,38 +100,38 @@ export default function Home({ notice, teacher, headTeacher, news, gellary,banne
         <div className={styles.textContainer}>
           <div className={styles.text}>
             <span>Name :</span>
-            <span>{headTeacher[0].name}</span>
+            <span>{pageData.headTeacher[0].name}</span>
           </div>
           <div className={styles.text}>
             <span>Email :</span>
-            <span>{headTeacher[0].email}</span>
+            <span>{pageData.headTeacher[0].email}</span>
           </div>
           <div className={styles.text}>
             <span>Phone :</span>
-            <span>{headTeacher[0].phone} </span>
+            <span>{pageData.headTeacher[0].phone} </span>
           </div>
           <div className={styles.text}>
             <span>Qualification :</span>
-            <span>{headTeacher[0].qualification}</span>
+            <span>{pageData.headTeacher[0].qualification}</span>
           </div>
           <div className={styles.text}>
             <span>Join Date : </span>
-            <span>{headTeacher[0].joinDate}</span>
+            <span>{pageData.headTeacher[0].joinDate}</span>
           </div>
           <div className={styles.text}>
             <span>Address :</span>
-            <span>{headTeacher[0].address}</span>
+            <span>{pageData.headTeacher[0].address}</span>
           </div>
         </div>
       </div>
 
-      {teacher && (
+      {pageData.teacher && (
         <>
           <div className={styles.heading}>Assistant Teachers</div>
           <div className={styles.headerUnderline}></div>
           <div className={styles.teachers}>
             <div className={styles.container}>
-              {teacher.map((item) => (
+              {pageData.teacher.map((item) => (
                 <Teacher key={item._id} teacherInfo={item} />
               ))}
             </div>
@@ -123,13 +144,13 @@ export default function Home({ notice, teacher, headTeacher, news, gellary,banne
         </>
       )}
 
-      {news && (
+      {pageData.news && (
         <>
           <div className={styles.heading}>News</div>
           <div className={styles.headerUnderline}></div>
           <div className={styles.news}>
             <div className={styles.container}>
-              {news.map((item) => (
+              {pageData.news.map((item) => (
                 <News key={item._id} allData={item} />
               ))}
             </div>
@@ -140,13 +161,13 @@ export default function Home({ notice, teacher, headTeacher, news, gellary,banne
         </>
       )}
 
-      {gellary && (
+      {pageData.gellary && (
         <>
           <div className={styles.heading}>Photo Gellary</div>
           <div className={styles.headerUnderline}></div>
           <div className={styles.gellary}>
             <div className={styles.container}>
-              {gellary.map((item) => (
+              {pageData.gellary.map((item) => (
                 <Gellary key={item._id} gellaryInfo={item} />
               ))}
             </div>
@@ -156,19 +177,21 @@ export default function Home({ notice, teacher, headTeacher, news, gellary,banne
           </div>
         </>
       )}
-    </div>
+    </div>}
+  </>
+
   );
 }
 
-export const getServerSideProps = async (ctx) => {
-  const server = `https://school-management-api-six.vercel.app`;
+// export const getServerSideProps = async (ctx) => {
+//   const server = `https://school-management-api-six.vercel.app`;
 
-  const res = await fetch(`${server}/homePage`);
-  const getData = await res.json();
+//   const res = await fetch(`${server}/homePage`);
+//   const getData = await res.json();
 
-  return {
-    props: {
-      ...getData,
-    },
-  };
-};
+//   return {
+//     props: {
+//       ...getData,
+//     },
+//   };
+// };

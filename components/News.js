@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Styles from "../styles/News.module.scss";
-import newsImg from "./surgery.jpg";
+
 import Link from "next/link";
 import React from "react";
 import { newss } from "../handlePopupForms/news";

@@ -4,10 +4,18 @@ import Styles from "../../styles/Result.module.scss";
 import ResultTable from "../../components/ResultTable";
 import Loading from "../../components/Loading";
 import { useData } from "../../contexts/dataContext";
+import { useRouter } from 'next/router'
 export default function Result() {
   const [loading, setloading] = useState(false);
   const [allResult, setallResult] = useState([]);
   const { data } = useData();
+  let router= useRouter()
+  useEffect(() => {
+    if (!data.isAdmin) {
+      router.push('/admin')
+    }
+    
+  }, []);
 
   const dataProsess = (data) => {
     let sortedData = data

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import TeacherImg from "./shohidul.png";
+
 import { useState } from "react";
 import { ClearAll, Clear } from "@material-ui/icons";
 import Link from "next/link";

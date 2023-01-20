@@ -42,7 +42,7 @@ export default function DataContext({ children }) {
         });
     }
   };
-  checkAdmin();
+  
   const showMessage = (message) => {
     dispatch({
       type: "popupMessage",

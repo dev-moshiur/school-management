@@ -1,7 +1,17 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Styles from "../../styles/Massage.module.scss";
 import Massage from "../../components/Massage";
+import { useData } from "../../contexts/dataContext";
+import { useRouter } from 'next/router'
 export default function Massages({ getMassage }) {
+  const { data } = useData();
+  let router= useRouter()
+  useEffect(() => {
+    if (!data.isAdmin) {
+      router.push('/admin')
+    }
+    
+  }, []);
   return (
     <div className={Styles.massages}>
       <div className={Styles.heading}></div>

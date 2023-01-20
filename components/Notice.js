@@ -1,4 +1,4 @@
-import NoticeImage from "./notice.jpg";
+
 import { useEffect } from "react";
 import Image from "next/image";
 import React from "react";
