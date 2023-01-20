@@ -1,5 +1,5 @@
 import Image from "next/image";
-import newsImg from "../../components/surgery.jpg";
+
 import Styles from "../../styles/SingleNews.module.scss";
 import React from "react";
 import { ThumbUp, ThumbDown } from "@material-ui/icons";
