@@ -51,7 +51,7 @@ export default function Result() {
      
         <form onSubmit={submitHandle}>
           <label htmlFor="examType">Exam Name</label>
-          <input required list='examType' type='text' id="examType" name="examType" />
+          <input required list='examType' type='text'  name="examType" />
           <datalist id="examType">
             <option value="Half-Yearly Examination 2023">Half-Yearly Examination 2023</option>
             <option value="Model Test Examination 2023">Model Test Examination 2023</option>
