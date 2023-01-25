@@ -53,15 +53,15 @@ export default function Result() {
           <label htmlFor="examType">Exam Name</label>
           <input required list='examType' type='text'  name="examType" />
           <datalist id="examType">
-            <option value="Half-Yearly Examination 2023">Half-Yearly Examination 2023</option>
-            <option value="Model Test Examination 2023">Model Test Examination 2023</option>
-            <option value="Weekly Test-35 2023">Weekly Test-35 2023</option>
-            <option value="Final Examination 2023">Final Examination 2023</option>
+            <option value="Half-Yearly Examination 2023"></option>
+            <option value="Model Test Examination 2023"></option>
+            <option value="Weekly Test-35 2023"></option>
+            <option value="Final Examination 2023"></option>
           </datalist>
           <label htmlFor="class">Class</label>
           <input required type='number' id="class" name="class" />
           <label htmlFor="group">Group</label>
-          <input list="group" required type="text" id="group" name="group" />
+          <input list="group" required type="text"  name="group" />
           <datalist id="group">
           <option value="science"></option>
           <option value="humanities"></option>
