@@ -24,7 +24,7 @@ export default function Addmission() {
       body: serverData,
     }).then((res) => {
       if (res.status == 200) {
-        showMessage("Massege sent successfully");
+        showMessage("Request sent successfully");
         setloading(false);
       } else {
         showMessage("something went wrong");
