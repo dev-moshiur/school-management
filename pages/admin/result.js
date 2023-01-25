@@ -56,7 +56,7 @@ export default function Result() {
           </datalist>
           <label htmlFor="class">Class</label>
           <input required type="number" id="class" name="class" />
-          <label htmlFor="croup">Group</label>
+          <label htmlFor="group">Group</label>
           <label htmlFor="group">Group</label>
           <input list="group" required type="text" name="group" />
           <datalist id="group">
