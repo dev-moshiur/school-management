@@ -15,6 +15,7 @@ export default function Marksheet({ data }) {
 
   return (
     <div className={Styles.marksheet}>
+      <button onClick={genaratePDF}>Download as PDF</button>
       <div id="pdfDownload" className={Styles.container}>
         <div className={Styles.top}>
           <div className={Styles.schoolName}>{data[0].schoolName}</div>
@@ -75,7 +76,7 @@ export default function Marksheet({ data }) {
           </table>
         </div>
       </div>
-      <button onClick={genaratePDF}>Download as PDF</button>
+      
     </div>
   );
 }

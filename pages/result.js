@@ -17,7 +17,7 @@ export default function Result() {
     e.preventDefault();
     setloading(true);
     fetch(
-      `${data.url}/result/?schoolName=Khalshi High School&className=${e.target.class.value}&group=${e.target.group.value}&roll=${e.target.roll.value}`
+      `${data.url}/result/?schoolName=Khalshi High School&className=${e.target.class.value}&group=${e.target.group.value}&roll=${e.target.examType.value}&examtype=${e.target.roll.value}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -40,21 +40,36 @@ export default function Result() {
        <div className={Styles.message}>
         <span>
         For testing search result with  <br/>
-        <b>class : 9 </b><br/>
+        <b>Exam Name : Half-Yearly Examination 2023 </b><br/>
+        <b>class : 10 </b><br/>
         <b>group : science </b><br/>
-        <b>roll : 1</b>
+        <b>roll : 2</b>
            
         </span>
         <Clear onClick={()=>setsearchMessage(false)}/>
       </div>}
      
         <form onSubmit={submitHandle}>
+          <label htmlFor="examType">Exam Name</label>
+          <input required list='examType' type='text' id="examType" name="examType" />
+          <datalist id="examType">
+            <option value="Half-Yearly Examination 2023">Half-Yearly Examination 2023</option>
+            <option value="Model Test Examination 2023">Model Test Examination 2023</option>
+            <option value="Weekly Test-35 2023">Weekly Test-35 2023</option>
+            <option value="Final Examination 2023">Final Examination 2023</option>
+          </datalist>
           <label htmlFor="class">Class</label>
-          <input type='number' id="class" name="class" />
-          <label htmlFor="croup">Group</label>
-          <input type="text" id="group" name="group" />
+          <input required type='number' id="class" name="class" />
+          <label htmlFor="group">Group</label>
+          <input list="group" required type="text" id="group" name="group" />
+          <datalist id="group">
+          <option value="science"></option>
+          <option value="humanities"></option>
+          <option value="business"></option>
+          <option value="no group"></option>
+        </datalist>
           <label htmlFor="roll">Roll</label>
-          <input type={"number"} name="roll" id="roll" />
+          <input required type={"number"} name="roll" id="roll" />
           <input className={Styles.reset} type="reset" value="Reset" />
           <input type="submit" value="Submit" />
         </form>

@@ -32,7 +32,7 @@ export default function Result() {
     e.preventDefault();
     setloading(true);
     fetch(
-      `${data.url}/result/?schoolName=Khalshi High School&className=${e.target.class.value}`
+      `${data.url}/result/?schoolName=Khalshi High School&className=${e.target.class.value}&examtype=${e.target.roll.value}`
     )
       .then((res) => res.json())
       .then((data) => dataProsess(data));
@@ -45,12 +45,25 @@ export default function Result() {
           Know your Opinion,report and so on
         </div> */}
         <form onSubmit={submitHandle}>
+          <label htmlFor="examType">Exam Name</label>
+          <input required list='examType' type='text' id="examType" name="examType" />
+          <datalist id="examType">
+            <option value="Half-Yearly Examination 2023">Half-Yearly Examination 2023</option>
+            <option value="Model Test Examination 2023">Model Test Examination 2023</option>
+            <option value="Weekly Test-35 2023">Weekly Test-35 2023</option>
+            <option value="Final Examination 2023">Final Examination 2023</option>
+          </datalist>
           <label htmlFor="class">Class</label>
-          <input type="number" id="class" name="class" />
+          <input required type="number" id="class" name="class" />
           <label htmlFor="croup">Group</label>
-          <input type="text" id="group" name="group" />
-          {/* <label htmlFor="roll">Roll</label>
-          <input type={'number'} name="roll" id="roll" /> */}
+          <label htmlFor="group">Group</label>
+          <input list="group" required type="text" id="group" name="group" />
+          <datalist id="group">
+          <option value="science"></option>
+          <option value="humanities"></option>
+          <option value="business"></option>
+          <option value="no group"></option>
+        </datalist>
           <input className={Styles.reset} type="reset" value="Reset" />
           <input type="submit" value="Submit" />
         </form>
