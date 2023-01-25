@@ -31,8 +31,9 @@ export default function Result() {
   const submitHandle = (e) => {
     e.preventDefault();
     setloading(true);
+    // &examtype=${e.target.examType.value}
     fetch(
-      `${data.url}/result/?schoolName=Khalshi High School&className=${e.target.class.value}&examtype=${e.target.examType.value}`
+      `${data.url}/result/?schoolName=Khalshi High School&className=${e.target.class.value}`
     )
       .then((res) => res.json())
       .then((data) => dataProsess(data));
