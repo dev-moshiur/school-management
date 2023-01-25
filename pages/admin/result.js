@@ -32,7 +32,7 @@ export default function Result() {
     e.preventDefault();
     setloading(true);
     fetch(
-      `${data.url}/result/?schoolName=Khalshi High School&className=${e.target.class.value}&examtype='${e.target.examType.value}'`
+      `${data.url}/result/?schoolName=Khalshi High School&className=${e.target.class.value}&examtype=${e.target.examType.value}`
     )
       .then((res) => res.json())
       .then((data) => dataProsess(data));
