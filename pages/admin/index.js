@@ -78,13 +78,7 @@ export default function Admin() {
                 <Link href={"admin/addmission"}>Addmission Request</Link>
               </div>
               <div className={item == "resultPublish" ? Styles.active : ""}>
-                <a
-                  href={"https://result-admin.vercel.app"}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Publish Result
-                </a>
+              <Link href={"admin/publishResult"}>Publish Result</Link>
               </div>
             </div>
             <div className={Styles.mainContainer}>

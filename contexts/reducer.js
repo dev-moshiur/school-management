@@ -10,6 +10,24 @@ const reducer = (state, action) => {
         ...state,
         loading: action.value,
       };
+      case "addSubject":
+      return {
+        ...state,
+        inputSubjects: [...state.inputSubjects, action.value],
+      };
+      case "addSubjOpen":
+      return {
+        ...state,
+        addSubj:action.value
+        };
+      case "removeSubject":
+      return {
+        ...state,
+        inputSubjects: state.inputSubjects.filter(
+          (item) => item.name != action.value
+        ),
+      };
+
     case "setAdmin":
       return {
         ...state,
@@ -41,6 +59,24 @@ const reducer = (state, action) => {
         submitFunction: action.value.submitFunction,
         formHeading: action.value.formHeading,
         loading: false,
+      };
+      case "upDateMarksheet":
+      return {
+        ...state,
+        total: state.total + action.value.subMark,
+        fail: state.fail + action.value.fail,
+        gpa: state.gpa + action.value.gpa,
+        subjInfo: [...state.subjInfo, action.value.subjInfo],
+        subjectCount: state.subjectCount + action.value.subjectCount,
+      };
+      case "imptyMarksheet":
+      return {
+        ...state,
+        total: 0,
+        fail: 0,
+        gpa: 0,
+        subjInfo: [],
+        subjectCount: 0,
       };
 
     default:

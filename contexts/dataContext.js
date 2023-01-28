@@ -19,6 +19,29 @@ export default function DataContext({ children }) {
     loading: false,
     url: `https://school-management-api-six.vercel.app`,
     submitFunction: () => {},
+    results: [],
+    total: 0,
+    fail: 0,
+    gpa: 0,
+    addSubj:false,
+    subjectCount: 0,
+    subjInfo: [],
+    inputSubjects: [
+      {
+        name: "Bangla",
+        id: "Bangla",
+        type: "main",
+        max: 100,
+        placeHolder: "1st,2nd",
+      },
+      {
+        name: "English",
+        id: "English",
+        type: "main",
+        max: 100,
+        placeHolder: "1st,2nd",
+      },
+    ],
   };
   const [data, dispatch] = useReducer(reducer, intialState);
 

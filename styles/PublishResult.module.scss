@@ -1,0 +1,88 @@
+
+
+.adminInput {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    .header {
+      color: var(--black);
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .heading {
+      color: var(--black);
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      background: #f2f3f4;
+      width: 330px;
+      justify-content: center;
+  
+      padding: 2rem;
+      border-radius: 0.4rem;
+      button {
+        background: rgb(241, 82, 38);
+        width: fit-content;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.4rem;
+        display: block;
+        margin: 0.5rem auto;
+      }
+      label {
+        font-size: 1.4rem;
+        margin-bottom: 0.3rem;
+        margin-top: 0.3rem;
+      }
+      input {
+        border: 1px solid #3b444b;
+        outline: none;
+        margin-bottom: 1rem;
+        //
+  
+        font-size: 1.3rem;
+        padding: 0.3rem 0.7rem;
+        border-radius: 0.3rem;
+  
+        &:last-child {
+          background: #2e8b57;
+          margin-top: 0.8rem;
+          border: none;
+          outline: none;
+          color: white;
+          font-size: 1.4rem;
+          font-weight: 600;
+          padding: 0.4rem;
+          cursor: pointer;
+        }
+      }
+      .reset {
+        background: rgb(241, 82, 38);
+        margin-top: 0.8rem;
+        border: none;
+        outline: none;
+        color: white;
+        font-size: 1.4rem;
+        font-weight: 600;
+        padding: 0.4rem;
+        cursor: pointer;
+      }
+    }
+    .btnDisabled {
+      cursor: not-allowed;
+    }
+  }
+  
