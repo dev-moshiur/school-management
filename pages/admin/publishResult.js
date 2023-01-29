@@ -3,11 +3,11 @@
 
 import React from "react";
 
-import { useRef, useState } from "react";
+import { useRef, useState,useEffect } from "react";
 
 import { useData } from "../../contexts/dataContext";
 import subjectMap from "../../makingMarksheetFunction/subjectMap";
-
+import { useRouter } from 'next/router'
 import DemoMarksheet from '../../components/DemoMarksheet'
 import AddSubj from '../../components/AddSubj'
 import Styles from '../../styles/PublishResult.module.scss'
@@ -15,16 +15,12 @@ import Styles from '../../styles/PublishResult.module.scss'
 
 export default function AdminInput() {
   const [showMarksheet, setShowMarksheet] = useState(false);
-
   const { data, dispatch } = useData();
-
-  
   let examtype = useRef();
   let className = useRef();
   let group = useRef();
   let studentName = useRef();
   let roll = useRef();
-  
 
   const makeMarksheet = () => {
     data.inputSubjects.forEach((item) => subjectMap(item, dispatch));
@@ -68,6 +64,14 @@ export default function AdminInput() {
     );
     setShowMarksheet(true);
   };
+  let router= useRouter()
+  useEffect(() => {
+    if (!data.isAdmin) {
+      
+      router.push('/admin')
+    }
+    
+  }, []);
   function sendServer() {
     return {
       studentName: studentName.current.value,
