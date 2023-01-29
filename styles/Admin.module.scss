@@ -16,6 +16,7 @@
       background: var(--mainColor3);
       font-size: 1.3rem;
       font-weight: 500;
+      
 
       .active {
         background: var(--mainColor4);
@@ -29,11 +30,25 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        background: var(--mainColor4);
       }
     }
     .mainContainer {
+      
       flex: 1;
       & > * {
+        .active {
+          margin: 0.5rem 0rem;
+          width: fit-content;
+          padding: 0.1rem 0.9rem;
+          border-radius: 0.3rem;
+          display: flex;
+          justify-content: center;
+          color: #fff;
+          align-items: center;
+          background: var(--mainColor4);
+
+        }
         &:first-child {
           display: flex;
           flex-direction: column;

@@ -64,7 +64,7 @@ export default function Admin() {
           <div className={Styles.heading}></div>
           <div className={Styles.container}>
             <div className={Styles.sidebar}>
-              <div className={item == "add" ? Styles.active : ""}>Add</div>
+              
               <div className={item == "massages" ? Styles.active : ""}>
                 <Link href={"admin/massages"}>Massages</Link>
               </div>
@@ -83,6 +83,7 @@ export default function Admin() {
             </div>
             <div className={Styles.mainContainer}>
               <div className={item == "add" ? Styles.active : ""}>
+                <div className={item == "add" ? Styles.active : ""}>Add</div>
                 <div onClick={creatingFormforNews}>News</div>
                 <div onClick={creatingFormForPostNotice}>Notice</div>
                 <div onClick={creatingFormForPostStudent}>Student</div>
