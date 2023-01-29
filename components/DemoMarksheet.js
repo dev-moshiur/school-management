@@ -8,7 +8,7 @@ import React from "react";
 import jsPDF from "jspdf";
 import Loading from "../components/Loading";
 
-export default function ({ sendServer, setShowMarksheet }) {
+export default function DemoMarksheet({ sendServer, setShowMarksheet }) {
   const { data, dispatch,showMessage } = useData();
   const serverData = sendServer();
   
@@ -116,8 +116,8 @@ export default function ({ sendServer, setShowMarksheet }) {
                 </tr>
               </thead>
               <tbody>
-                {serverData.subjets.map((items) => (
-                  <tr>
+                {serverData.subjets.map((items,index) => (
+                  <tr key={index}>
                     <td>{items.subject}</td>
                     <td>{items.subGreate}</td>
                     <td>{items.subMarks}</td>

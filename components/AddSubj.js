@@ -41,8 +41,8 @@ export default function AddSubj() {
       <div className={Styles.container}>
         <div className={Styles.heading}>Current Subjects</div>
         <div className={Styles.currentSubj}>
-          {data.inputSubjects.map((item) => (
-            <div onClick={() => remove(item.name)}>
+          {data.inputSubjects.map((item,index) => (
+            <div key={index} onClick={() => remove(item.name)}>
               <span>{item.name}</span>
               <Clear />
             </div>
@@ -71,8 +71,8 @@ export default function AddSubj() {
                 "Hindu and Moral Education",
                 "Agriculture",
                 "Higher Mathmetics",
-              ].map((elm) => (
-                <option value={elm}></option>
+              ].map((elm,index) => (
+                <option key={index} value={elm}></option>
               ))}
             </datalist>
             <label htmlFor="type">Subject type</label>
