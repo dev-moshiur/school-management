@@ -28,6 +28,7 @@ export default function AddSubj() {
       type: "addSubject",
       value: addData,
     });
+    
   };
   const remove = (name) => {
     dispatch({
@@ -35,6 +36,7 @@ export default function AddSubj() {
       value: name,
     });
   };
+  
   return (
     <div 
     className={`${Styles.addSubj} ${data.addSubj ? Styles.active : ""}`}>
@@ -89,7 +91,7 @@ export default function AddSubj() {
               <option value="100"></option>
               <option value="50"></option>
             </datalist>
-            <input name="reset" type="reset" className={Styles.reset} value="Reset" />
+            <input name="reset" type="reset" className={Styles.reset} value="Clear Form" />
             <input type="submit" value={`Add `} />
           </form>
         </div>

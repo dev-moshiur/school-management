@@ -1,7 +1,7 @@
 .popupMessage {
   position: fixed;
   top: -5px;
-  right: 40%;
+  right: calc(50% - 100px);
   z-index: 5;
   font-size: 1.4rem;
   box-shadow: 0rem 0rem 2rem rgba(0, 0, 0, 0.4);
@@ -10,6 +10,11 @@
   color: var(--white);
   font-weight: 700;
   transition: 0.6s;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
   opacity: 0.4;
   &.active {
     top: 150px;

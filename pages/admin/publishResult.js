@@ -9,7 +9,9 @@ import { useData } from "../../contexts/dataContext";
 import subjectMap from "../../makingMarksheetFunction/subjectMap";
 
 import DemoMarksheet from '../../components/DemoMarksheet'
+import AddSubj from '../../components/AddSubj'
 import Styles from '../../styles/PublishResult.module.scss'
+
 
 export default function AdminInput() {
   const [showMarksheet, setShowMarksheet] = useState(false);
@@ -176,6 +178,7 @@ export default function AdminInput() {
         />
         <input type="submit" value="Submit" onClick={submitAction}/>
       </form>
+      <AddSubj/>
 
       {showMarksheet && (
         <DemoMarksheet
