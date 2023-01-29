@@ -15,7 +15,7 @@ import Styles from '../../styles/PublishResult.module.scss'
 
 export default function AdminInput() {
   const [showMarksheet, setShowMarksheet] = useState(false);
-  const { data, dispatch } = useData();
+  const { data, dispatch ,showMessage} = useData();
   let examtype = useRef();
   let className = useRef();
   let group = useRef();
@@ -69,6 +69,7 @@ export default function AdminInput() {
     if (!data.isAdmin) {
       
       router.push('/admin')
+      showMessage('Login as an Admin');
     }
     
   }, []);

@@ -4,11 +4,12 @@ import Styles from "../../styles/AddmitionReqs.module.scss";
 import { useData } from "../../contexts/dataContext";
 import { useRouter } from 'next/router'
 export default function Addmission({ getAddmissionReq }) {
-  const { data } = useData();
+  const { data,showMessage  } = useData();
   let router= useRouter()
   useEffect(() => {
     if (!data.isAdmin) {
       router.push('/admin')
+      showMessage('Login as an Admin');
     }
     
   }, []);

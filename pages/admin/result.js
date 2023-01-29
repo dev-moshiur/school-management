@@ -8,12 +8,13 @@ import { useRouter } from 'next/router'
 export default function Result() {
   const [loading, setloading] = useState(false);
   const [allResult, setallResult] = useState([]);
-  const { data } = useData();
+  const { data,showMessage } = useData();
   let router= useRouter()
   useEffect(() => {
     if (!data.isAdmin) {
       
-      router.push('/admin')
+      router.push('/admin');
+      showMessage('Login as an Admin');
     }
     
   }, []);
