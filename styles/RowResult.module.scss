@@ -4,5 +4,21 @@
   }
   td {
     border: 1px solid gray;
+    
+    &.action{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--mainColor3);
+      height: 100%;
+      color: #fff;
+      cursor: pointer;
+      &>*{
+        color: #fff;
+        font-size: 1.4rem;
+      }
+    }
+    
   }
+  
 }

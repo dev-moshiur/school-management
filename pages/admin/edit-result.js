@@ -27,7 +27,7 @@ export default function Result() {
         return b.group - a.group;
       })
       .sort(function (a, b) {
-        return b.className - a.className;
+        return a.className - b.className;
       });
     setallResult(sortedData);
     setloading(false);
