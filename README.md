@@ -19,7 +19,6 @@ In the project directory, you will find these feature: \
 <span style="color:#00C49F">**1. Fully Responsive** </span> \
 <span style="color:#00C49F">**2. Admin page** </span> \
 <span style="color:#00C49F">**3. Login & Register page using jwt** </span> \
-
 <span style="color:#00C49F">**4. Home,About,News,Notice,Student,Admission,Teacher,Gallery,Result,Contact page for students ** </span> \
 <span style="color:#00C49F">**5. Users can view notices with published dates and know all other information of the school including news, teachers,students,gallery etc.** </span> \
 <span style="color:#00C49F">**6. Students can search results and download PDF.Candidates can apply for admission in it** </span>\
