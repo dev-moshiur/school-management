@@ -142,7 +142,7 @@ export default function Home() {
                   ))}
                 </div>
                 <div className={styles.all}>
-                  <Link href={"/teacher"}>
+                  <Link href={"/teachers"}>
                     <a>View all</a>
                   </Link>
                 </div>
