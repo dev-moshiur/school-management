@@ -13,9 +13,10 @@ export default function NewsCom({ getData }) {
         <div className={Styles.addNews} onClick={() => setFormOpen(true)}>
           <button>Add A News</button>
         </div>
+        <div className={Styles.container}>
         {getData.map((item) => (
           <News key={item._id} allData={item} />
-        ))}
+        ))}</div>
       </div>
       <NewsForm formOpen={formOpen} setFormOpen={setFormOpen} method={"post"} />
     </>

@@ -37,7 +37,7 @@ export default function News({ allData }) {
               <Image
                 layout="responsive"
                 width={"100%"}
-                height={"40rem"}
+                height={"50rem"}
                 className={Styles.image}
                 src={allData.img}
                 alt="photo"
@@ -47,9 +47,9 @@ export default function News({ allData }) {
           <div className={Styles.text}>
             <div className={Styles.headline}>{allData.headline}</div>
             <div className={Styles.time}>
-              <span>date : {new Date(allData.createdAt).toDateString()}</span>
+              <span>{new Date(allData.createdAt).toDateString()}</span>
               <span>
-                Time : {new Date(allData.createdAt).toLocaleTimeString()}
+                {new Date(allData.createdAt).toLocaleTimeString()}
               </span>
             </div>
             <Link
