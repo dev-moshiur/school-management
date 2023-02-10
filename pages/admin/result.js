@@ -1,22 +1,20 @@
-import React,{useEffect}  from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import Styles from "../../styles/Result.module.scss";
 import ResultTable from "../../components/ResultTable";
 import Loading from "../../components/Loading";
 import { useData } from "../../contexts/dataContext";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 export default function Result() {
   const [loading, setloading] = useState(false);
   const [allResult, setallResult] = useState([]);
-  const { data,showMessage } = useData();
-  let router= useRouter()
+  const { data, showMessage } = useData();
+  let router = useRouter();
   useEffect(() => {
     if (!data.isAdmin) {
-      
-      router.push('/admin');
-      showMessage('Login as an Admin');
+      router.push("/admin");
+      showMessage("Login as an Admin");
     }
-    
   }, []);
   const dataProsess = (data) => {
     let sortedData = data
@@ -32,7 +30,7 @@ export default function Result() {
   const submitHandle = (e) => {
     e.preventDefault();
     setloading(true);
-    
+
     fetch(
       `${data.url}/result/?schoolName=Khalshi High School&className=${e.target.class.value}&examtype=${e.target.examType.value}`
     )
@@ -48,7 +46,7 @@ export default function Result() {
         </div> */}
         <form onSubmit={submitHandle}>
           <label htmlFor="examType">Exam Name</label>
-          <input required list='examType' type='text'  name="examType" />
+          <input required list="examType" type="text" name="examType" />
           <datalist id="examType">
             <option value="Half-Yearly Examination 2023"></option>
             <option value="Model Test Examination 2023"></option>
@@ -61,11 +59,11 @@ export default function Result() {
           <label htmlFor="group">Group</label>
           <input list="group" required type="text" name="group" />
           <datalist id="group">
-          <option value="science"></option>
-          <option value="humanities"></option>
-          <option value="business"></option>
-          <option value="no group"></option>
-        </datalist>
+            <option value="science"></option>
+            <option value="humanities"></option>
+            <option value="business"></option>
+            <option value="no group"></option>
+          </datalist>
           <input className={Styles.reset} type="reset" value="Reset" />
           <input type="submit" value="Submit" />
         </form>

@@ -1,30 +1,32 @@
 import Styles from "../styles/Teacher.module.scss";
 import React from "react";
-import { useData } from "../contexts/dataContext";
-import { teacher } from "../handlePopupForms/teacher";
+import { useState } from "react";
+
 import Teacher from "../components/Teacher";
+import TeacherForm from "../popupForms/teacher/Teacher";
 export default function TeacherCom({ getData }) {
-  const { data, dispatch, showMessage } = useData();
-  const creatingFormForPost = () => {
-    dispatch({
-      type: "createForm",
-      value: teacher("post", showMessage),
-    });
-  };
+  const [formOpen, setFormOpen] = useState(false);
 
   return (
-    <div className={Styles.teachers}>
-      <div className={Styles.container}>
-        <div onClick={creatingFormForPost} className={Styles.add}>
-          <button>Add Teacher</button>
-        </div>
-        <div className={Styles.teacherContainer}>
-          {getData.map((item) => (
-            <Teacher key={item._id} teacherInfo={item} />
-          ))}
+    <>
+      <div className={Styles.teachers}>
+        <div className={Styles.container}>
+          <div onClick={() => setFormOpen(true)} className={Styles.add}>
+            <button>Add Teacher</button>
+          </div>
+          <div className={Styles.teacherContainer}>
+            {getData.map((item) => (
+              <Teacher key={item._id} teacherInfo={item} />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+      <TeacherForm
+        formOpen={formOpen}
+        setFormOpen={setFormOpen}
+        method={"post"}
+      />
+    </>
   );
 }
 

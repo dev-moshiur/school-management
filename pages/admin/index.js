@@ -1,57 +1,47 @@
 import Link from "next/link";
-import React from "react";
+
 import Styles from "../../styles/Admin.module.scss";
 import { useState } from "react";
 import Register from "../../components/Register";
 import Login from "../../components/Login";
 import { useData } from "../../contexts/dataContext";
+import GellaryForm from "../../popupForms/gellary/Gellary";
+import NewsForm from "../../popupForms/news/News";
+import StudentForm from "../../popupForms/student/Student";
+import TeacherForm from "../../popupForms/teacher/Teacher";
+import BannerForm from "../../popupForms/banner/Banner";
+import NoticeForm from "../../popupForms/notice/Notice";
 
-import { gallery } from "../../handlePopupForms/gellary";
-import { newss } from "../../handlePopupForms/news";
-import { student } from "../../handlePopupForms/student";
-import { teacher } from "../../handlePopupForms/teacher";
-import { notice } from "../../handlePopupForms/notice";
-import { banner } from "../../handlePopupForms/banner";
 export default function Admin() {
   const [item, setitem] = useState("add");
   const [content, setcontent] = useState("login");
   const { data, dispatch, showMessage } = useData();
+  const [popupFormName, setPopupFormName] = useState("");
+  const [formOpen, setFormOpen] = useState(false);
 
   const creatingFormforNews = () => {
-    dispatch({
-      type: "createForm",
-      value: newss("post", showMessage),
-    });
+    setPopupFormName("news");
+    setFormOpen(true);
   };
   const creatingFormForPostNotice = () => {
-    dispatch({
-      type: "createForm",
-      value: notice("post", showMessage),
-    });
+    setPopupFormName("notice");
+    setFormOpen(true);
   };
   const creatingFormForPostStudent = () => {
-    dispatch({
-      type: "createForm",
-      value: student("post", showMessage),
-    });
+    setPopupFormName("student");
+    setFormOpen(true);
   };
   const creatingFormForPostTeacher = () => {
-    dispatch({
-      type: "createForm",
-      value: teacher("post", showMessage),
-    });
+    setPopupFormName("teacher");
+    setFormOpen(true);
   };
   const creatingFormForPostGellary = () => {
-    dispatch({
-      type: "createForm",
-      value: gallery("post", showMessage),
-    });
+    setPopupFormName("gellary");
+    setFormOpen(true);
   };
   const creatingFormForPostBanner = () => {
-    dispatch({
-      type: "createForm",
-      value: banner("post", showMessage),
-    });
+    setPopupFormName("banner");
+    setFormOpen(true);
   };
   return (
     <>
@@ -64,7 +54,6 @@ export default function Admin() {
           <div className={Styles.heading}></div>
           <div className={Styles.container}>
             <div className={Styles.sidebar}>
-              
               <div className={item == "massages" ? Styles.active : ""}>
                 <Link href={"admin/massages"}>Massages</Link>
               </div>
@@ -77,9 +66,7 @@ export default function Admin() {
               <div className={item == "addmission" ? Styles.active : ""}>
                 <Link href={"admin/addmission"}>Addmission Request</Link>
               </div>
-              <div className={item == "resultPublish" ? Styles.active : ""}>
-              <Link href={"admin/publishResult"}>Publish Result</Link>
-              </div>
+              
             </div>
             <div className={Styles.mainContainer}>
               <div className={item == "add" ? Styles.active : ""}>
@@ -96,6 +83,50 @@ export default function Admin() {
             </div>
           </div>
         </div>
+      )}
+
+      {popupFormName == "gellary" && (
+        <GellaryForm
+          formOpen={formOpen}
+          setFormOpen={setFormOpen}
+          method={"post"}
+        />
+      )}
+      {popupFormName == "news" && (
+        <NewsForm
+          formOpen={formOpen}
+          setFormOpen={setFormOpen}
+          method={"post"}
+        />
+      )}
+
+      {popupFormName == "teacher" && (
+        <TeacherForm
+          formOpen={formOpen}
+          setFormOpen={setFormOpen}
+          method={"post"}
+        />
+      )}
+      {popupFormName == "student" && (
+        <StudentForm
+          formOpen={formOpen}
+          setFormOpen={setFormOpen}
+          method={"post"}
+        />
+      )}
+      {popupFormName == "banner" && (
+        <BannerForm
+          formOpen={formOpen}
+          setFormOpen={setFormOpen}
+          method={"post"}
+        />
+      )}
+      {popupFormName == "notice" && (
+        <NoticeForm
+          formOpen={formOpen}
+          setFormOpen={setFormOpen}
+          method={"post"}
+        />
       )}
     </>
   );

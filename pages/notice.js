@@ -1,18 +1,19 @@
 import Styles from "../styles/Notice.module.scss";
-import React from "react";
-import { useData } from "../contexts/dataContext";
+import React ,{useState} from "react";
+
 import Notice from "../components/Notice";
-import { notice } from "../handlePopupForms/notice";
+import NoticeForm from "../popupForms/notice/Notice";
+
 export default function NoticeCom({ getData }) {
-  const { data, dispatch, showMessage } = useData();
+  const [formOpen, setFormOpen] = useState(false);
   const creatingFormForPost = () => {
-    dispatch({
-      type: "createForm",
-      value: notice("post", showMessage),
-    });
+    setFormOpen(true)
   };
 
   return (
+    <>
+    
+    
     <div className={Styles.notices}>
       <div className={Styles.container}>
         <div onClick={creatingFormForPost} className={Styles.add}>
@@ -27,6 +28,12 @@ export default function NoticeCom({ getData }) {
         )}
       </div>
     </div>
+    <NoticeForm
+          formOpen={formOpen}
+          setFormOpen={setFormOpen}
+          method={"post"}
+        />
+    </>
   );
 }
 

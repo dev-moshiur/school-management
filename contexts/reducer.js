@@ -10,17 +10,17 @@ const reducer = (state, action) => {
         ...state,
         loading: action.value,
       };
-      case "addSubject":
+    case "addSubject":
       return {
         ...state,
         inputSubjects: [...state.inputSubjects, action.value],
       };
-      case "addSubjOpen":
+    case "addSubjOpen":
       return {
         ...state,
-        addSubj:action.value
-        };
-      case "removeSubject":
+        addSubj: action.value,
+      };
+    case "removeSubject":
       return {
         ...state,
         inputSubjects: state.inputSubjects.filter(
@@ -51,16 +51,8 @@ const reducer = (state, action) => {
         popup: "",
         link: action.value,
       };
-    case "createForm":
-      return {
-        ...state,
-        popup: action.value.popup == state.popup ? "" : action.value.popup,
-        formFields: action.value.formFields,
-        submitFunction: action.value.submitFunction,
-        formHeading: action.value.formHeading,
-        loading: false,
-      };
-      case "upDateMarksheet":
+
+    case "upDateMarksheet":
       return {
         ...state,
         total: state.total + action.value.subMark,
@@ -69,7 +61,7 @@ const reducer = (state, action) => {
         subjInfo: [...state.subjInfo, action.value.subjInfo],
         subjectCount: state.subjectCount + action.value.subjectCount,
       };
-      case "imptyMarksheet":
+    case "imptyMarksheet":
       return {
         ...state,
         total: 0,

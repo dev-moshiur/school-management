@@ -58,7 +58,12 @@ export default function ResultTable({ data, edit }) {
             <tbody>
               {data &&
                 data.map((elm, index) => (
-                  <RowResult key={index} edit={edit} index={index} result={elm} />
+                  <RowResult
+                    key={index}
+                    edit={edit}
+                    index={index}
+                    result={elm}
+                  />
                 ))}
             </tbody>
           </table>

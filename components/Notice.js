@@ -1,23 +1,21 @@
-
-import { useEffect } from "react";
 import Image from "next/image";
 import React from "react";
 import { useState } from "react";
-import { ClearAll, Clear } from "@material-ui/icons";
 import Link from "next/link";
-import { notice } from "../handlePopupForms/notice";
 import Styles from "../styles/SingleNotice.module.scss";
 import { useData } from "../contexts/dataContext";
+import NoticeForm from "../popupForms/notice/Notice";
+
 export default function Student({ noticeInfo }) {
   const [adminMenu, setadminMenu] = useState(false);
+  const [formOpen, setFormOpen] = useState(false);
+
+  
 
   const { data, dispatch, showMessage } = useData();
 
   const creatingFormForPut = () => {
-    dispatch({
-      type: "createForm",
-      value: notice("put", showMessage, noticeInfo._id, noticeInfo.headline),
-    });
+    setFormOpen(true)
   };
   const deliting = () => {
     fetch(`${data.url}/notice/${noticeInfo._id}`, {
@@ -31,6 +29,8 @@ export default function Student({ noticeInfo }) {
     });
   };
   return (
+    <>
+
     <div className={Styles.notice}>
       <div className={Styles.imgContainer}>
         {noticeInfo.img && (
@@ -55,7 +55,7 @@ export default function Student({ noticeInfo }) {
           href={`/notice/[${noticeInfo._id}]`}
           as={`/notice/${noticeInfo._id}`}
         >
-          <a onClick={() => dispatch({ type: "setLink", value: "notice" })}>
+          <a >
             View
           </a>
         </Link>
@@ -77,5 +77,14 @@ export default function Student({ noticeInfo }) {
         </>
       )}
     </div>
+    <NoticeForm
+          formOpen={formOpen}
+          setFormOpen={setFormOpen}
+          method={"put"}
+          id={noticeInfo._id}
+          headline={noticeInfo.headline}
+        />   
+    
+     </>
   );
 }

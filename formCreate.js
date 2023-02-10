@@ -61,9 +61,7 @@ export const banner = (
       serverData.append("linkName", e.target.linkName.value);
 
       fetch(
-        `https://school-management-api-six.vercel.app/banner/${
-          id ? id : ""
-        }`,
+        `https://school-management-api-six.vercel.app/banner/${id ? id : ""}`,
         {
           method: method,
           body: serverData,
@@ -117,9 +115,7 @@ export const newss = (method, func, id, headline = "", data = "") => {
       serverData.append("data", e.target.data.value);
       serverData.append("headline", e.target.headline.value);
       fetch(
-        `https://school-management-api-six.vercel.app/news/${
-          id ? id : ""
-        }`,
+        `https://school-management-api-six.vercel.app/news/${id ? id : ""}`,
         {
           method: method,
           body: serverData,
@@ -227,9 +223,7 @@ export const student = (
       serverData.append("address", e.target.address.value);
 
       fetch(
-        `https://school-management-api-six.vercel.app/person/${
-          id ? id : ""
-        }`,
+        `https://school-management-api-six.vercel.app/person/${id ? id : ""}`,
         {
           method: method,
           body: serverData,
@@ -336,9 +330,7 @@ export const teacher = (
       serverData.append("address", e.target.address.value);
 
       fetch(
-        `https://school-management-api-six.vercel.app/teacher/${
-          id ? id : ""
-        }`,
+        `https://school-management-api-six.vercel.app/teacher/${id ? id : ""}`,
         {
           method,
           body: serverData,
@@ -381,9 +373,7 @@ export const notice = (method, func, id, headline = "") => {
       serverData.append("headline", e.target.headline.value);
 
       fetch(
-        `https://school-management-api-six.vercel.app/notice${
-          id ? id : ""
-        }`,
+        `https://school-management-api-six.vercel.app/notice${id ? id : ""}`,
         {
           method: method,
           body: serverData,

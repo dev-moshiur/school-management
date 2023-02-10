@@ -23,7 +23,7 @@
       display: block;
     }
   }
-  .message{
+  .message {
     display: flex;
     align-items: center;
     width: 80%;
@@ -36,15 +36,13 @@
     font-weight: 500;
     color: var(--white);
     background-color: var(--mainColor4);
-    
-      &>*{
-        &:last-child{
-          cursor: pointer;
-          font-size: 1.5rem;
-        }
-      }
-    
 
+    & > * {
+      &:last-child {
+        cursor: pointer;
+        font-size: 1.5rem;
+      }
+    }
   }
   form {
     display: flex;

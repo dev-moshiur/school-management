@@ -4,27 +4,29 @@ import { useState } from "react";
 import { Delete } from "@material-ui/icons";
 import { useData } from "../contexts/dataContext";
 export default function RowResult({ result, index, edit }) {
-  const {data,showMessage} = useData()
+  const { data, showMessage } = useData();
   const [deleted, setdeleted] = useState(false);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const deliting = (id) => {
-    setLoading(true)
+    setLoading(true);
     fetch(`${data.url}/result/${id}`, {
       method: "delete",
     }).then((respo) => {
       if (respo.status == 200) {
         setdeleted(true);
-        showMessage('Deleted')
+        showMessage("Deleted");
       }
-      setLoading(false)
+      setLoading(false);
     });
   };
   return (
     <tr className={`${Styles.rowResult} ${deleted ? Styles.deleted : ""}`}>
       {edit && (
         <>
-          <td onClick={() => deliting(result._id) } className={Styles.action}>{loading ?'load':<Delete/>}</td>
+          <td onClick={() => deliting(result._id)} className={Styles.action}>
+            {loading ? "load" : <Delete />}
+          </td>
           <td>{result.className}</td>
           <td>{result.group}</td>
         </>

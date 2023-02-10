@@ -7,11 +7,10 @@ import { useData } from "../contexts/dataContext";
 import { Clear } from "@material-ui/icons";
 export default function Result() {
   const [searchMessage, setsearchMessage] = useState(true);
-  
+
   const [result, setresult] = useState([]);
   const [loading, setloading] = useState(false);
   const { data } = useData();
-  
 
   const submitHandle = (e) => {
     e.preventDefault();
@@ -25,9 +24,7 @@ export default function Result() {
         setloading(false);
         console.log(data);
       })
-      .catch(err=>console.log(err))
-        
-      
+      .catch((err) => console.log(err));
   };
   return (
     <div className={Styles.result}>
@@ -36,22 +33,25 @@ export default function Result() {
         {/* <div className={Styles.title}>
           Know your Opinion,report and so on
         </div> */}
-        {searchMessage && 
-       <div className={Styles.message}>
-        <span>
-        For testing search result with  <br/>
-        <b>Exam Name : Half-Yearly Examination 2023 </b><br/>
-        <b>class : 10 </b><br/>
-        <b>group : science </b><br/>
-        <b>roll : 2</b>
-           
-        </span>
-        <Clear onClick={()=>setsearchMessage(false)}/>
-      </div>}
-     
+        {searchMessage && (
+          <div className={Styles.message}>
+            <span>
+              For testing search result with <br />
+              <b>Exam Name : Half-Yearly Examination 2023 </b>
+              <br />
+              <b>class : 10 </b>
+              <br />
+              <b>group : science </b>
+              <br />
+              <b>roll : 2</b>
+            </span>
+            <Clear onClick={() => setsearchMessage(false)} />
+          </div>
+        )}
+
         <form onSubmit={submitHandle}>
           <label htmlFor="examType">Exam Name</label>
-          <input required list='examType' type='text'  name="examType" />
+          <input required list="examType" type="text" name="examType" />
           <datalist id="examType">
             <option value="Half-Yearly Examination 2023"></option>
             <option value="Model Test Examination 2023"></option>
@@ -59,15 +59,15 @@ export default function Result() {
             <option value="Final Examination 2023"></option>
           </datalist>
           <label htmlFor="class">Class</label>
-          <input required type='number' id="class" name="class" />
+          <input required type="number" id="class" name="class" />
           <label htmlFor="group">Group</label>
-          <input list="group" required type="text"  name="group" />
+          <input list="group" required type="text" name="group" />
           <datalist id="group">
-          <option value="science"></option>
-          <option value="humanities"></option>
-          <option value="business"></option>
-          <option value="no group"></option>
-        </datalist>
+            <option value="science"></option>
+            <option value="humanities"></option>
+            <option value="business"></option>
+            <option value="no group"></option>
+          </datalist>
           <label htmlFor="roll">Roll</label>
           <input required type={"number"} name="roll" id="roll" />
           <input className={Styles.reset} type="reset" value="Reset" />

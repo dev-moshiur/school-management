@@ -9,50 +9,20 @@ export const useData = () => {
 
 export default function DataContext({ children }) {
   let intialState = {
-    link: "home",
     popup: "",
     popupMessage: "",
-    formFields: [],
     adminChecked: false,
-    formHeading: "",
     isAdmin: false,
     loading: false,
     url: `https://school-management-api-six.vercel.app`,
-    submitFunction: () => {},
-    results: [],
-    total: 0,
-    fail: 0,
-    gpa: 0,
-    addSubj:false,
-    subjectCount: 0,
-    subjInfo: [],
-    inputSubjects: [
-      {
-        name: "Bangla",
-        id: "Bangla",
-        type: "main",
-        max: 100,
-        placeHolder: "1st,2nd",
-      },
-      {
-        name: "English",
-        id: "English",
-        type: "main",
-        max: 100,
-        placeHolder: "1st,2nd",
-      },
-    ],
   };
   const [data, dispatch] = useReducer(reducer, intialState);
 
   const checkAdmin = () => {
     if (!data.adminChecked) {
-      fetch(
-        `https://school-management-api-six.vercel.app/checkAdmin`,
-        {
-          credentials: "include",
-        }
-      )
+      fetch(`https://school-management-api-six.vercel.app/checkAdmin`, {
+        credentials: "include",
+      })
         .then((res) => res.json())
         .then((data) => {
           if (data.admin) {
@@ -65,7 +35,7 @@ export default function DataContext({ children }) {
         });
     }
   };
-  
+
   const showMessage = (message) => {
     dispatch({
       type: "popupMessage",

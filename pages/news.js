@@ -1,27 +1,24 @@
 import News from "../components/News";
 import React from "react";
 import { useState } from "react";
-import { useData } from "../contexts/dataContext";
-import Styles from "../styles/Allnews.module.scss";
-import { newss } from "../handlePopupForms/news";
-export default function NewsCom({ getData }) {
-  const { data, dispatch, showMessage } = useData();
 
-  const creatingForm = () => {
-    dispatch({
-      type: "createForm",
-      value: newss("post", showMessage),
-    });
-  };
+import Styles from "../styles/Allnews.module.scss";
+import NewsForm from "../popupForms/news/News";
+export default function NewsCom({ getData }) {
+  const [formOpen, setFormOpen] = useState(false);
+
   return (
-    <div className={Styles.Allnews}>
-      <div className={Styles.addNews}>
-        <button onClick={creatingForm}>Add A News</button>
+    <>
+      <div className={Styles.Allnews}>
+        <div className={Styles.addNews} onClick={() => setFormOpen(true)}>
+          <button>Add A News</button>
+        </div>
+        {getData.map((item) => (
+          <News key={item._id} allData={item} />
+        ))}
       </div>
-      {getData.map((item) => (
-        <News key={item._id} allData={item} />
-      ))}
-    </div>
+      <NewsForm formOpen={formOpen} setFormOpen={setFormOpen} method={"post"} />
+    </>
   );
 }
 

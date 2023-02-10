@@ -15,7 +15,7 @@
     max-width: 500px;
     min-height: 26rem;
     align-items: center;
-    .message{
+    .message {
       display: flex;
       align-items: center;
       width: 80%;
@@ -28,16 +28,13 @@
       font-weight: 500;
       color: var(--white);
       background-color: var(--mainColor4);
-      
-        &>*{
-          &:last-child{
-            cursor: pointer;
-            font-size: 1.5rem;
-  
-          }
+
+      & > * {
+        &:last-child {
+          cursor: pointer;
+          font-size: 1.5rem;
         }
-      
-  
+      }
     }
     .heading {
       font-size: 1.5rem;

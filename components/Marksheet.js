@@ -76,7 +76,6 @@ export default function Marksheet({ data }) {
           </table>
         </div>
       </div>
-      
     </div>
   );
 }
