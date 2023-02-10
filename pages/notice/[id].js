@@ -26,7 +26,7 @@ export default function NoticeSingle({ noticeInfo }) {
             <span>{noticeInfo.headline}</span>
           </div>
           <div className={Styles.time}>
-            <span>{noticeInfo.createdAt}</span>
+            <span>{new Date(noticeInfo.createdAt).toDateString()}</span>
           </div>
         </div>
       </div>

@@ -11,6 +11,7 @@ import Gellary from "../components/Gellary";
 import Theme from "../components/Theme";
 import Link from "next/link";
 import Loading from "../components/Loading";
+import { Email, Person, Phone, PinDrop, School, Timelapse, WorkSharp } from "@material-ui/icons";
 
 export default function Home() {
   const [pageData, setpageData] = useState({});
@@ -88,9 +89,9 @@ export default function Home() {
             <div className={styles.imgContainer}>
               {pageData.headTeacher[0].img && (
                 <Image
-                  layout="responsive"
-                  width={"100%"}
-                  height="100%"
+                  layout='responsive'
+                  width={"10%"}
+                  height="10%"
                   src={pageData.headTeacher[0].img}
                   alt="photo"
                 />
@@ -98,26 +99,32 @@ export default function Home() {
             </div>
             <div className={styles.textContainer}>
               <div className={styles.text}>
+                <Person/>
                 <span>Name :</span>
                 <span>{pageData.headTeacher[0].name}</span>
               </div>
               <div className={styles.text}>
+                <Email/>
                 <span>Email :</span>
                 <span>{pageData.headTeacher[0].email}</span>
               </div>
               <div className={styles.text}>
+                <Phone/>
                 <span>Phone :</span>
                 <span>{pageData.headTeacher[0].phone} </span>
               </div>
               <div className={styles.text}>
+                <School/>
                 <span>Qualification :</span>
                 <span>{pageData.headTeacher[0].qualification}</span>
               </div>
               <div className={styles.text}>
+                <WorkSharp/>
                 <span>Join Date : </span>
                 <span>{pageData.headTeacher[0].joinDate}</span>
               </div>
               <div className={styles.text}>
+                <PinDrop/>
                 <span>Address :</span>
                 <span>{pageData.headTeacher[0].address}</span>
               </div>
