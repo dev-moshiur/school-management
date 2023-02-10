@@ -1,34 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Khalshi high school  - Nextjs App
 
-## Getting Started
+This project was made by [Moshiur Rahman](https://github.com/dev-moshiur) with [Next JS](https://github.com/facebook/create-next-app).
 
-First, run the development server:
+<br>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## **`What I used?`**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Mainly I have used these as my coding: \
+<span style="color:#00C707">**1. HTML, CSS, NextJS, JavaScript for Front-end** </span> \
+<span style="color:#00C707">**2. NodeJS with ExpressJS for Server Site** </span> \
+<span style="color:#00C707">**2. MongoDB for Database** </span>
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<br>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## **`Feature List`**
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+In the project directory, you will find these feature: \
+<span style="color:#00C49F">**1. Fully Responsive** </span> \
+<span style="color:#00C49F">**2. Admin page** </span> \
+<span style="color:#00C49F">**3. Login & Register page using jwt** </span> \
+<span style="color:#00C49F">**4. Home,About,News,Notice,Student,Admission,Teacher,Gallery,Result,Contact page for students ** </span> \
+<span style="color:#00C49F">**5. Users can view notices with published dates and know all other information of the school including news, teachers,students,gallery etc.** </span> \
+<span style="color:#00C49F">**6. Students can search results and download PDF.Candidates can apply for admission in it** </span>\
+<span style="color:#00C49F">**7.  There is an awesome admin functionality in this website.admin can add, update and delete anyinformation and publish results filling a form with students subject wise mark.admin also can download school copy of result and admit cards.** </span>\
+<br>
 
-## Learn More
+## **`Useful Links`**
 
-To learn more about Next.js, take a look at the following resources:
+**1. [Github Client Side Repository](https://github.com/dev-moshiur/school-management)** \
+**2. [Github Server Side Repository](https://github.com/dev-moshiur/school-management-api)** \
+**3. [Live Website](https://school-management-beta.vercel.app)**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## **`Credits`**
 
-## Deploy on Vercel
+This application acknowledge the hard work and contribution of the following third party libraries or framework or icon or packages. <br> We used and take inspiration from the following third party libraries/framework.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**1. [jsPDF](https://www.npmjs.com/package/jspdf) - jsPDF** \
+**2. [Material icons](https://mui.com/material-ui/material-icons) - Material icons** \
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
