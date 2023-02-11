@@ -13,11 +13,12 @@
   }
   .left {
     width: 100%;
-    padding: 0px 2%;
+    
     .imgContainer {
-      width: 94%;
+      width: 96%;
       margin: 0 auto;
       height: fit-content;
+background:#f2f3f4;
     }
     & > * {
       &:last-child {

@@ -131,6 +131,7 @@
     .imgContainer {
       flex: 1 1 20rem;
       height: fit-content;
+background:#f2f3f4;
     }
     .textContainer {
       flex: 1 1 30rem;
@@ -154,9 +155,7 @@
         span {
           font-size: 1.4rem;
           font-weight: 500;
-          &:first-child {
-            
-          }
+          
           &:last-child {
             margin-left: 0.5rem;
           }
