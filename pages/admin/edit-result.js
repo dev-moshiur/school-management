@@ -8,10 +8,10 @@ import { useRouter } from "next/router";
 export default function Result() {
   const [loading, setloading] = useState(false);
   const [allResult, setallResult] = useState([]);
-  const { data, showMessage } = useData();
+  const { isAdmin, showMessage,url } = useData();
   let router = useRouter();
   useEffect(() => {
-    if (!data.isAdmin) {
+    if (!isAdmin.isAdmin) {
       router.push("/admin");
       showMessage("Login as an Admin");
     }
@@ -26,14 +26,14 @@ export default function Result() {
         return b.group - a.group;
       })
       .sort(function (a, b) {
-        return a.className - b.className;
+        return b.className - a.className;
       });
     setallResult(sortedData);
     setloading(false);
   };
   useEffect(() => {
     setloading(true);
-    fetch(`${data.url}/result/?schoolName=Khalshi High School`)
+    fetch(`${url}/result/?schoolName=Khalshi High School`)
       .then((res) => res.json())
       .then((data) => dataProsess(data));
   }, []);

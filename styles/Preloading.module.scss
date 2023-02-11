@@ -1,0 +1,24 @@
+
+.preloading{
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    background:#676d89;
+    z-index: 20;
+    &.active{
+        left: 0;
+    }
+    .imgContainer{
+        width: 80%;
+        max-width: 550px;
+        
+        
+    }
+
+}

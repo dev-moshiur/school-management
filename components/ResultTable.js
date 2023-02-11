@@ -15,11 +15,16 @@ export default function ResultTable({ data, edit }) {
 
   return (
     <>
+    {!edit && (
+      <button className={Styles.button} onClick={genaratePDF}>
+        Download as PDF
+      </button>
+    )}
       <div id="pdfDown" className={Styles.rowResultContainer}>
         <div className={Styles.header}>
           <div className={Styles.schoolName}>{data[0].schoolName}</div>
           <div className={Styles.examType}>
-            {data.examType || "Annual Examination 2023"}
+            {data[0].examType || "Annual Examination 2023"}
           </div>
           <div className={Styles.other}>
             <div>
@@ -69,11 +74,7 @@ export default function ResultTable({ data, edit }) {
           </table>
         </div>
       </div>
-      {!edit && (
-        <button className={Styles.button} onClick={genaratePDF}>
-          Download as PDF
-        </button>
-      )}
+
     </>
   );
 }

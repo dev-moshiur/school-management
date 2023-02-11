@@ -4,13 +4,13 @@ import { useState } from "react";
 import { Delete } from "@material-ui/icons";
 import { useData } from "../contexts/dataContext";
 export default function RowResult({ result, index, edit }) {
-  const { data, showMessage } = useData();
+  const { data, showMessage,url } = useData();
   const [deleted, setdeleted] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const deliting = (id) => {
     setLoading(true);
-    fetch(`${data.url}/result/${id}`, {
+    fetch(`${url}/result/${id}`, {
       method: "delete",
     }).then((respo) => {
       if (respo.status == 200) {

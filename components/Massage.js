@@ -4,9 +4,9 @@ import { useData } from "../contexts/dataContext";
 import Styles from "../styles/SingleMessage.module.scss";
 export default function Massage({ massageInfo }) {
   const [deleted, setdeleted] = useState(false);
-  const { showMessage, data } = useData();
+  const { showMessage,url } = useData();
   const deliting = () => {
-    fetch(`${data.url}/message/${massageInfo._id}`, {
+    fetch(`${url}/message/${massageInfo._id}`, {
       method: "delete",
     }).then((respo) => {
       if (respo.status == 200) {

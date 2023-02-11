@@ -5,9 +5,9 @@ import Styles from "../styles/AddmitionReq.module.scss";
 
 export default function AddmitionReq({ AddmitionReq }) {
   const [deleted, setdeleted] = useState(false);
-  const { showMessage } = useData();
+  const { showMessage,url } = useData();
   const deliting = () => {
-    fetch(`${data.url}/${AddmitionReq._id}`, {
+    fetch(`${url}/${AddmitionReq._id}`, {
       method: "delete",
     }).then((respo) => {
       if (respo.status == 200) {

@@ -10,13 +10,13 @@ export default function Result() {
 
   const [result, setresult] = useState([]);
   const [loading, setloading] = useState(false);
-  const { data } = useData();
+  const { url } = useData();
 
   const submitHandle = (e) => {
     e.preventDefault();
     setloading(true);
     fetch(
-      `${data.url}/result/?schoolName=Khalshi High School&className=${e.target.class.value}&group=${e.target.group.value}&roll=${e.target.roll.value}&examtype=${e.target.examType.value}`
+      `${url}/result/?schoolName=Khalshi High School&className=${e.target.class.value}&group=${e.target.group.value}&roll=${e.target.roll.value}&examtype=${e.target.examType.value}`
     )
       .then((res) => res.json())
       .then((data) => {

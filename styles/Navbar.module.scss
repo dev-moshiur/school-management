@@ -31,16 +31,37 @@
       color: var(--white);
 
       & > * {
-        margin: 0px 0.5rem;
-        font-size: 1.2rem;
+        margin: 0px 0.26rem;
+        font-size: 1.3rem;
         font-weight: 500;
-        padding: 0.1rem 0.3rem;
-        border-radius: 0.2rem;
-        transition: 0.7s;
+        padding: 0.2rem 0.3rem;
+        border-radius: 0.1rem;
+        transition: 0.3s;
+
+        &:last-child{
+          display: flex;
+          align-items: center;
+          margin-left: 2rem;
+          column-gap: 0.4rem;
+          border: 1px solid var(--white);
+          padding: 0.4rem 0.8rem;
+          border-radius: 0.2rem;
+          transition: 0.3s;
+          &:hover{
+            background-color: var(--mainColor4);
+          }
+          &>*{
+            &:first-child{
+              font-size: 1.9rem;
+            }
+            font-size: 1.5rem;
+          }
+        }
 
         &.active {
           color: var(--white);
           background: var(--mainColor4);
+          
         }
         // background: var(--mainColor3);
         &::after {

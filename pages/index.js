@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import ImageSlider from "../components/ImageSlider";
 import "swiper/css";
 import "swiper/css/pagination";
 import { useEffect, useState } from "react";
@@ -11,11 +11,15 @@ import Gellary from "../components/Gellary";
 import Theme from "../components/Theme";
 import Link from "next/link";
 import Loading from "../components/Loading";
+import Preloading from '../components/Preloading'
 import { Email, Person, Phone, PinDrop, School, Timelapse, WorkSharp } from "@material-ui/icons";
 
 export default function Home() {
   const [pageData, setpageData] = useState({});
   const [loading, setloading] = useState(true);
+  const [currentItemIndex, setCurrentItemIndex] = useState(0);
+  const [imgSliderOpen, setImgSliderOpen] = useState(false);
+  const [firstLanding, setFirstLanding] = useState(true)
 
   useEffect(() => {
     setloading(true);
@@ -26,11 +30,12 @@ export default function Home() {
       .then((data) => {
         setpageData(data);
         setloading(false);
+        setFirstLanding(false)
       });
   }, []);
 
   return (
-    <>
+    <><Preloading firstLanding={firstLanding}/>
       {loading && <Loading loading={loading} />}
       {!loading && (
         <div className={styles.home}>
@@ -142,7 +147,7 @@ export default function Home() {
                   ))}
                 </div>
                 <div className={styles.all}>
-                  <Link href={"/teacher"}>
+                  <Link href={"/teachers"}>
                     <a>View all</a>
                   </Link>
                 </div>
@@ -172,15 +177,26 @@ export default function Home() {
               <div className={styles.heading}>Photo Gellary</div>
               <div className={styles.headerUnderline}></div>
               <div className={styles.gellary}>
+              <div className={styles.sliderBtn} onClick={()=>{setImgSliderOpen(true);setCurrentItemIndex(0)}}>
+
+                View Slider
+
+                </div>
                 <div className={styles.container}>
-                  {pageData.gellary.map((item) => (
-                    <Gellary key={item._id} gellaryInfo={item} />
+                  {pageData.gellary.map((item,index) => (
+                    <div onClick={()=>{setCurrentItemIndex(index);setImgSliderOpen(true)}} key={index}>
+                    <Gellary   gellaryInfo={item} />
+                    </div>
                   ))}
                 </div>
                 <div className={styles.all}>
                   <Link href={"/gellary"}>View All</Link>
                 </div>
               </div>
+              {imgSliderOpen && <ImageSlider 
+                items={pageData.gellary}
+                currentItemIndex={currentItemIndex}
+                setImgSliderOpen={setImgSliderOpen } />}
             </>
           )}
         </div>

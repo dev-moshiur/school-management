@@ -15,7 +15,7 @@ import NoticeForm from "../../popupForms/notice/Notice";
 export default function Admin() {
   const [item, setitem] = useState("add");
   const [content, setcontent] = useState("login");
-  const { data, dispatch, showMessage } = useData();
+  const { isAdmin } = useData();
   const [popupFormName, setPopupFormName] = useState("");
   const [formOpen, setFormOpen] = useState(false);
 
@@ -48,12 +48,13 @@ export default function Admin() {
       {content == "register" && !data.isAdmin && (
         <Register setcontent={setcontent} />
       )}
-      {!data.isAdmin && <Login setcontent={setcontent} />}
-      {data.isAdmin && (
+      {!isAdmin && <Login setcontent={setcontent} />}
+      {isAdmin && (
         <div className={Styles.admin}>
           <div className={Styles.heading}></div>
           <div className={Styles.container}>
             <div className={Styles.sidebar}>
+              <div>Visit Admin Routes</div>
               <div className={item == "massages" ? Styles.active : ""}>
                 <Link href={"admin/massages"}>Massages</Link>
               </div>
@@ -69,17 +70,17 @@ export default function Admin() {
               
             </div>
             <div className={Styles.mainContainer}>
-              <div className={item == "add" ? Styles.active : ""}>
-                <div className={item == "add" ? Styles.active : ""}>Add</div>
+              
+                <div >Add Website Content</div>
                 <div onClick={creatingFormforNews}>News</div>
                 <div onClick={creatingFormForPostNotice}>Notice</div>
                 <div onClick={creatingFormForPostStudent}>Student</div>
                 <div onClick={creatingFormForPostTeacher}>Teacher</div>
-                <div>Information</div>
+                
                 <div onClick={creatingFormForPostGellary}>Gellary Image</div>
                 <div onClick={creatingFormForPostBanner}>Banner</div>
-                <div>Headline</div>
-              </div>
+                
+              
             </div>
           </div>
         </div>

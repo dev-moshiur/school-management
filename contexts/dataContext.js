@@ -1,6 +1,6 @@
-import reducer from "./reducer";
+
 import { useContext } from "react";
-import { useReducer } from "react";
+import { useState } from "react";
 import React from "react";
 const dataContext = React.createContext();
 export const useData = () => {
@@ -8,58 +8,43 @@ export const useData = () => {
 };
 
 export default function DataContext({ children }) {
-  let intialState = {
-    popup: "",
-    popupMessage: "",
-    adminChecked: false,
-    isAdmin: false,
-    loading: false,
-    url: `https://school-management-api-six.vercel.app`,
-  };
-  const [data, dispatch] = useReducer(reducer, intialState);
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [popupMessage, setPopupMessage] = useState('')
+  const [isAdmin, setIsAdmin] = useState(false)
+  const url = `https://school-management-api-six.vercel.app`
+  
 
-  const checkAdmin = () => {
-    if (!data.adminChecked) {
-      fetch(`https://school-management-api-six.vercel.app/checkAdmin`, {
-        credentials: "include",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.admin) {
-            dispatch({
-              type: "setAdmin",
-              value: true,
-            });
-          } else {
-          }
-        });
-    }
-  };
+  // const checkAdmin = () => {
+  //   if (!data.adminChecked) {
+  //     fetch(`https://school-management-api-six.vercel.app/checkAdmin`, {
+  //       credentials: "include",
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         if (data.admin) {
+  //           setIsAdmin(true)
+  //         } else {
+  //         }
+  //       });
+  //   }
+  // };
 
   const showMessage = (message) => {
-    dispatch({
-      type: "popupMessage",
-      value: {
-        popup: "popupMessage",
-        message: message,
-      },
-    });
+    setPopupMessage(message)
     setTimeout(
       () =>
-        dispatch({
-          type: "popupMessage",
-          value: {
-            popup: "",
-            massage: message,
-          },
-        }),
+      setPopupMessage(''),
       2500
     );
   };
   const allData = {
-    data,
-    dispatch,
+    isAdmin,
+    popupMessage,
     showMessage,
+    menuOpen, 
+    setMenuOpen,
+    setIsAdmin,
+    url
   };
   return (
     <dataContext.Provider value={allData}>{children}</dataContext.Provider>

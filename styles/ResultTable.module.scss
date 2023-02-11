@@ -1,18 +1,20 @@
 .rowResultContainer {
   width: 1191px;
-  // height: 1648px;
+  
   overflow: scroll;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   overflow-y: hidden;
+  
   .header {
-    margin: 2rem 0;
+    margin: 2rem auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: fit-content;
     .schoolName {
       color: var(--black);
       font-size: 2.3rem;
@@ -87,4 +89,6 @@
   color: white;
   border-radius: 0.5rem;
   background: rgb(241, 82, 38);
+  display: block;
+  position: absolute;
 }

@@ -5,7 +5,7 @@ import { useState } from "react";
 import Loading from "../components/Loading";
 export default function Addmission() {
   const [loading, setloading] = useState(false);
-  const { data, showMessage } = useData();
+  const { url, showMessage } = useData();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +19,7 @@ export default function Addmission() {
     serverData.append("phone", e.target.phone.value);
     serverData.append("address", e.target.adress.value);
     serverData.append("gender", e.target.gender.value);
-    fetch(`${data.url}/addmission`, {
+    fetch(`${url}/addmission`, {
       method: "post",
       body: serverData,
     }).then((res) => {

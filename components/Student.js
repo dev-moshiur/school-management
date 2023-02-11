@@ -7,14 +7,14 @@ import Styles from "../styles/SingleStudent.module.scss";
 import { useData } from "../contexts/dataContext";
 export default function Student({ studentInfo }) {
   const [adminMenu, setadminMenu] = useState(true);
-  const { data, dispatch, showMessage } = useData();
+  const { isAdmin, showMessage,url } = useData();
   const [formOpen, setFormOpen] = useState(false);
 
   const creatingFormForPut = () => {
     setFormOpen(true);
   };
   const deliting = () => {
-    fetch(`${data.url}/${studentInfo._id}`, {
+    fetch(`${url}/${studentInfo._id}`, {
       method: "delete",
     }).then((respo) => {
       if (respo.status == 200) {
@@ -71,7 +71,7 @@ export default function Student({ studentInfo }) {
             <span>{studentInfo.email}</span>
           </div>
         </div>
-        {data.isAdmin && (
+        {isAdmin && (
           <>
             <div
               className={`${Styles.admin} ${adminMenu ? Styles.active : ""}`}

@@ -10,13 +10,13 @@ export default function Gellary({ gellaryInfo }) {
 
   const [adminMenu, setadminMenu] = useState(false);
   let d = new Date(gellaryInfo.createdAt).toDateString();
-  const { data, dispatch, showMessage } = useData();
+  const { isAdmin, showMessage,url } = useData();
 
   const creatingFormForPut = () => {
     setFormOpen(true);
   };
   const deliting = () => {
-    fetch(`${data.url}/gellary/${gellaryInfo._id}`, {
+    fetch(`${url}/gellary/${gellaryInfo._id}`, {
       method: "delete",
     }).then((respo) => {
       if (respo.status == 200) {
@@ -44,7 +44,7 @@ export default function Gellary({ gellaryInfo }) {
           <div className={Styles.headline}>{gellaryInfo.headline}</div>
           <div className={Styles.date}>{d}</div>
         </div>
-        {data.isAdmin && (
+        {isAdmin && (
           <>
             <div
               className={`${Styles.addmin} ${adminMenu ? Styles.active : ""}`}

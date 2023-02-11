@@ -8,7 +8,7 @@ import { useData } from "../contexts/dataContext";
 import NewsForm from "../popupForms/news/News";
 
 export default function News({ allData }) {
-  const { data, dispatch, showMessage } = useData();
+  const { isAdmin, showMessage,url } = useData();
   const [adminMenu, setadminMenu] = useState(false);
   const [formOpen, setFormOpen] = useState(false);
 
@@ -17,7 +17,7 @@ export default function News({ allData }) {
     setFormOpen(true);
   };
   const deliting = () => {
-    fetch(`${data.url}/news/${allData._id}`, {
+    fetch(`${url}/news/${allData._id}`, {
       method: "delete",
     }).then((respo) => {
       if (respo.status == 200) {
@@ -57,12 +57,12 @@ export default function News({ allData }) {
               as={`/news/${allData._id}`}
               className={Styles.view}
             >
-              <a onClick={() => dispatch({ type: "setLink", value: "news" })}>
-                {" "}
+              <a >
+                
                 See More
               </a>
             </Link>
-            {data.isAdmin && (
+            {isAdmin && (
               <>
                 <div
                   className={`${Styles.addmin} ${

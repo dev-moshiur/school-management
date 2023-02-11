@@ -11,13 +11,13 @@ export default function Student({ teacherInfo }) {
   const [adminMenu, setadminMenu] = useState(false);
   const [formOpen, setFormOpen] = useState(false);
 
-  const { data, dispatch, showMessage } = useData();
+  const { isAdmin, showMessage,url } = useData();
   // let imgSrc=`https://school-management-api-six.vercel.app/${teacherInfo.img}`;
   const creatingFormForPut = () => {
     setFormOpen(true);
   };
   const deliting = () => {
-    fetch(`${data.url}/teacher/${teacherInfo._id}`, {
+    fetch(`${url}/teacher/${teacherInfo._id}`, {
       method: "delete",
     }).then((respo) => {
       if (respo.status == 200) {
@@ -54,13 +54,13 @@ export default function Student({ teacherInfo }) {
             href={`/teacher/[${teacherInfo._id}]`}
             as={`/teacher/${teacherInfo._id}`}
           >
-            <a onClick={() => dispatch({ type: "setLink", value: "teacher" })}>
+            <a >
               See More
             </a>
           </Link>
         </div>
 
-        {data.isAdmin && (
+        {isAdmin && (
           <>
             <div
               className={`${Styles.addmin} ${adminMenu ? Styles.active : ""}`}

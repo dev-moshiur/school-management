@@ -184,9 +184,21 @@
     column-gap: 1rem; row-gap: 1rem;
     }
   }
+  
   .gellary {
     width: 94%;
     margin: 0 auto;
+    .sliderBtn{
+      background-color: var(--mainColor3);
+      color:#fff;
+      font-size: 1.5rem;
+      padding: 0.4rem 1.2rem;
+      border-radius: 0.2rem;
+      cursor: pointer;
+      width: fit-content;
+      margin: 1rem auto;
+      animation: letterSpacing 0.8s linear 0s infinite  ;
+    }
     .container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
@@ -209,4 +221,17 @@
       }
     }
   }
+}
+
+@keyframes letterSpacing {
+  0% {
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(0.92);
+  }
+  100%{
+    transform: scale(1);
+  }
+  
 }

@@ -9,6 +9,18 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    .sliderBtn{
+      background-color: var(--mainColor3);
+      color:#fff;
+      font-size: 1.5rem;
+      padding: 0.4rem 1.2rem;
+      border-radius: 0.2rem;
+      cursor: pointer;
+      width: fit-content;
+      margin: 1rem auto;
+      animation: letterSpacing 0.8s linear 0s infinite  ;
+    
+    }
     .add {
       button {
         background: var(--mainColor3);
@@ -35,4 +47,18 @@
       row-gap: 1.2rem;
     }
   }
+}
+
+
+@keyframes letterSpacing {
+  0% {
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(0.92);
+  }
+  100%{
+    transform: scale(1);
+  }
+  
 }

@@ -11,10 +11,10 @@ import { useEffect, useState } from "react";
 import { useData } from "../contexts/dataContext";
 import { Delete } from "@material-ui/icons";
 export default function Theme({ banners }) {
-  const { data } = useData();
+  const { isAdmin,url } = useData();
 
   const deliting = (id) => {
-    fetch(`${data.url}/banner/${id}`, {
+    fetch(`${url}/banner/${id}`, {
       method: "delete",
     }).then((respo) => {
       if (respo.status == 200) {
@@ -60,7 +60,7 @@ export default function Theme({ banners }) {
                   <Link href={elm.link ? elm.link : "/"}>{elm.linkName}</Link>
                 </button>
               </div>
-              {data.isAdmin && (
+              {isAdmin && (
                 <>
                   <div className={Styles.delete}>
                     <Delete onClick={() => deliting(elm._id)} />

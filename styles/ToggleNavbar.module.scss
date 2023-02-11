@@ -33,6 +33,21 @@
       transition: 0.4s;
       width: fit-content;
       padding: 0.2rem 0.6rem;
+      &:last-child{
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+        column-gap: 0.4rem;
+        border: 1px solid var(--white);
+        padding: 0.4rem 0.8rem;
+        border-radius: 0.2rem;
+        &>*{
+          &:first-child{
+            font-size: 2rem;
+          }
+          font-size: 1.7rem;
+        }
+      }
       &.active {
         background: var(--mainColor4);
       }

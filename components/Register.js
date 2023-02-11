@@ -3,7 +3,7 @@ import { useData } from "../contexts/dataContext";
 import Loading from "./Loading";
 import Styles from "../styles/Login.module.scss";
 export default function Login({ setcontent }) {
-  const { showMessage, data, dispatch } = useData();
+  const { showMessage, url } = useData();
 
   let name = useRef();
   let email = useRef();
@@ -13,12 +13,9 @@ export default function Login({ setcontent }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({
-      type: "load",
-      value: true,
-    });
+    
     if (password.current.value == cpassword.current.value) {
-      fetch(`${data.url}/register/register`, {
+      fetch(`${url}/register/register`, {
         method: "post",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({
@@ -27,10 +24,7 @@ export default function Login({ setcontent }) {
           password: password.current.value,
         }),
       }).then((data) => {
-        dispatch({
-          type: "load",
-          value: false,
-        });
+        
         if (data.status == 200) {
           showMessage("Register Successfull");
           setcontent("admin");

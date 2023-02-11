@@ -1,14 +1,16 @@
 import Link from "next/link";
-import { Person } from "@material-ui/icons";
+import { Person, SupervisedUserCircle } from "@material-ui/icons";
 import React from "react";
 import { useState } from "react";
 import { useData } from "../contexts/dataContext";
 import Styles from "../styles/Navbar.module.scss";
 import {useRouter} from 'next/router';
 
+import Image from "next/image";
+
 export default function Navbar() {
   const {pathname} = useRouter()
-  const { data, dispatch } = useData();
+  const { menuOpen,setMenuOpen } = useData();
   return (
     <div className={Styles.navbar}>
       <div className={Styles.bottom}>
@@ -98,16 +100,19 @@ export default function Navbar() {
             <a
               
               className={`${pathname == "/admin" ? Styles.active : ""}`}
+
             >
-              Admin
+              <SupervisedUserCircle/>
+              <span>Admin</span>
+              
             </a>
           </Link>
         </div>
         
         <div
-          onClick={() => dispatch({ type: "popup", value: "menu" })}
+          onClick={() => setMenuOpen((pre) =>!pre)}
           className={`${Styles.menu} ${
-            data.popup == "menu" ? Styles.active : ""
+            menuOpen ? Styles.active : ""
           }`}
         >
           <span></span>

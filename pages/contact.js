@@ -5,7 +5,7 @@ import Loading from "../components/Loading";
 import { useData } from "../contexts/dataContext";
 export default function Contact() {
   const [loading, setloading] = useState(false);
-  const { data, showMessage } = useData();
+  const { url, showMessage } = useData();
 
   const submitHangle = (e) => {
     e.preventDefault();
@@ -14,7 +14,7 @@ export default function Contact() {
     serverData.append("name", e.target.name.value);
     serverData.append("email", e.target.email.value);
     serverData.append("message", e.target.message.value);
-    fetch(`${data.url}/message`, {
+    fetch(`${url}/message`, {
       method: "post",
       body: serverData,
     }).then((res) => {

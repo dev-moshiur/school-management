@@ -4,18 +4,16 @@ import Loading from "./Loading";
 import Styles from "../styles/Login.module.scss";
 import { Clear } from "@material-ui/icons";
 export default function Login({ setcontent }) {
-  const { showMessage, data, dispatch } = useData();
+  const { showMessage, setIsAdmin,url } = useData();
   const [loginMessage, setLoginMessage] = useState(true);
+  const [loading, setLoading] = useState(false)
   let email = useRef();
   let password = useRef();
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({
-      type: "load",
-      value: true,
-    });
-
-    fetch(`${data.url}/register/login`, {
+    setLoading(true)
+    
+    fetch(`${url}/register/login`, {
       method: "post",
       headers: { "Content-type": "application/json" },
       credentials: "include",
@@ -25,15 +23,10 @@ export default function Login({ setcontent }) {
         password: password.current.value,
       }),
     }).then((data) => {
-      dispatch({
-        type: "load",
-        value: false,
-      });
+      setLoading(false)
+      
       if (data.status == 200) {
-        dispatch({
-          type: "setAdmin",
-          value: true,
-        });
+        setIsAdmin(true)
         showMessage("Login Successfull");
       } else {
         showMessage("Something went wrong");
@@ -44,7 +37,7 @@ export default function Login({ setcontent }) {
   return (
     <div className={Styles.login}>
       <div className={Styles.heading}>Login</div>
-      <Loading loading={data.loading} />
+      <Loading loading={loading} />
       {loginMessage && (
         <div className={Styles.message}>
           <span>

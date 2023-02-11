@@ -1,16 +1,21 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Styles from "../styles/ToggleNavbar.module.scss";
 import { useData } from "../contexts/dataContext";
 import Link from "next/link";
 import {useRouter} from 'next/router';
-
+import {SupervisedUserCircle} from '@material-ui/icons'
 export default function ToggleNavbar() {
   const {pathname} = useRouter()
-  const { data, dispatch } = useData();
+  const { menuOpen,setMenuOpen } = useData();
+  useEffect(() => {
+    setMenuOpen(false)
+    
+  }, [pathname])
+  
   return (
     <div
       className={`${Styles.ToggleNavbar} ${
-        data.popup == "menu" ? Styles.active : ""
+        menuOpen ? Styles.active : ""
       }`}
     >
       <div className={Styles.container}>
@@ -98,8 +103,11 @@ export default function ToggleNavbar() {
             <a
               
               className={`${pathname == "/admin" ? Styles.active : ""}`}
+
             >
-              Admin
+              <SupervisedUserCircle/>
+              <span>Admin</span>
+              
             </a>
           </Link>
         </div>

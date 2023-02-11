@@ -12,13 +12,13 @@ export default function Student({ noticeInfo }) {
 
   
 
-  const { data, dispatch, showMessage } = useData();
+  const { isAdmin, showMessage,url } = useData();
 
   const creatingFormForPut = () => {
     setFormOpen(true)
   };
   const deliting = () => {
-    fetch(`${data.url}/notice/${noticeInfo._id}`, {
+    fetch(`${url}/notice/${noticeInfo._id}`, {
       method: "delete",
     }).then((respo) => {
       if (respo.status == 200) {
@@ -60,7 +60,7 @@ export default function Student({ noticeInfo }) {
           </a>
         </Link>
       </div>
-      {data.isAdmin && (
+      {isAdmin && (
         <>
           <div className={`${Styles.addmin} ${adminMenu ? Styles.active : ""}`}>
             <span onClick={creatingFormForPut}>Update</span>

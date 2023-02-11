@@ -8,10 +8,10 @@ import { useRouter } from "next/router";
 export default function Result() {
   const [loading, setloading] = useState(false);
   const [allResult, setallResult] = useState([]);
-  const { data, showMessage } = useData();
+  const { isAdmin, showMessage,url } = useData();
   let router = useRouter();
   useEffect(() => {
-    if (!data.isAdmin) {
+    if (!isAdmin) {
       router.push("/admin");
       showMessage("Login as an Admin");
     }
@@ -32,7 +32,7 @@ export default function Result() {
     setloading(true);
 
     fetch(
-      `${data.url}/result/?schoolName=Khalshi High School&className=${e.target.class.value}&examtype=${e.target.examType.value}`
+      `${url}/result/?schoolName=Khalshi High School&className=${e.target.class.value}&examtype=${e.target.examType.value}`
     )
       .then((res) => res.json())
       .then((data) => dataProsess(data));
@@ -55,7 +55,7 @@ export default function Result() {
           </datalist>
           <label htmlFor="class">Class</label>
           <input required type="number" id="class" name="class" />
-          <label htmlFor="group">Group</label>
+          
           <label htmlFor="group">Group</label>
           <input list="group" required type="text" name="group" />
           <datalist id="group">

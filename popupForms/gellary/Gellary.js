@@ -47,7 +47,7 @@ export default function Gellary({
         .then((res) => res.json())
         .then((data) => {
           submitServer(data.url);
-          console.log(data.url);
+          
         });
     } else {
       submitServer("");
