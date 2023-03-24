@@ -39,7 +39,7 @@ html {
 label{
   font-size: 1.6rem !important;
 }
-input {
+input,select {
   font-size: 1.5rem !important;
   border: 1px solid rgb(171, 167, 167) !important;
   padding: 0.5rem 0.7rem !important;
