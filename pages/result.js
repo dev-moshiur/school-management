@@ -64,7 +64,7 @@ export default function Result() {
           <select
             name="group"
             id=""
-            ref={group}
+            
             placeholder="select from datalist"
           >
             <option value="science">Science</option>
