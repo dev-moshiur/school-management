@@ -61,13 +61,17 @@ export default function Result() {
           <label htmlFor="class">Class</label>
           <input required type="number" id="class" name="class" />
           <label htmlFor="group">Group</label>
-          <input list="group" required type="text" name="group" />
-          <datalist id="group">
-            <option value="science"></option>
-            <option value="humanities"></option>
-            <option value="business"></option>
-            <option value="no group"></option>
-          </datalist>
+          <select
+            name="group"
+            id=""
+            ref={group}
+            placeholder="select from datalist"
+          >
+            <option value="science">Science</option>
+            <option value="humanities">Humanities</option>
+            <option value="business">Business</option>
+            <option value="no group">No group</option>
+          </select>
           <label htmlFor="roll">Roll</label>
           <input required type={"number"} name="roll" id="roll" />
           <input className={Styles.reset} type="reset" value="Reset" />
