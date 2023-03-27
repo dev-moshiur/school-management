@@ -92,7 +92,7 @@ export default function Home() {
           <div className={styles.headerUnderline}></div>
           <div className={styles.headTeacher}>
             <div className={styles.imgContainer}>
-              {pageData.headTeacher[0].img && (
+              {pageData.headTeacher[0]?.img && (
                 <Image
                   layout='responsive'
                   width={"10%"}
@@ -106,32 +106,32 @@ export default function Home() {
               <div className={styles.text}>
                 <Person/>
                 <span>Name :</span>
-                <span>{pageData.headTeacher[0].name}</span>
+                <span>{pageData.headTeacher[0]?.name}</span>
               </div>
               <div className={styles.text}>
                 <Email/>
                 <span>Email :</span>
-                <span>{pageData.headTeacher[0].email}</span>
+                <span>{pageData.headTeacher[0]?.email}</span>
               </div>
               <div className={styles.text}>
                 <Phone/>
                 <span>Phone :</span>
-                <span>{pageData.headTeacher[0].phone} </span>
+                <span>{pageData.headTeacher[0]?.phone} </span>
               </div>
               <div className={styles.text}>
                 <School/>
                 <span>Qualification :</span>
-                <span>{pageData.headTeacher[0].qualification}</span>
+                <span>{pageData.headTeacher[0]?.qualification}</span>
               </div>
               <div className={styles.text}>
                 <WorkSharp/>
                 <span>Join Date : </span>
-                <span>{pageData.headTeacher[0].joinDate}</span>
+                <span>{pageData.headTeacher[0]?.joinDate}</span>
               </div>
               <div className={styles.text}>
                 <PinDrop/>
                 <span>Address :</span>
-                <span>{pageData.headTeacher[0].address}</span>
+                <span>{pageData.headTeacher[0]?.address}</span>
               </div>
             </div>
           </div>
